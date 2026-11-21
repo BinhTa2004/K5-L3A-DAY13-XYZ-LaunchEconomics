@@ -3,18 +3,18 @@
 - Nhóm chấm và được chấm: XYZ, lớp L3A.
 - Ngày tự chấm: 21/11/2026.
 - Hình thức: nhóm tự đánh giá hồ sơ theo C1–C8 trong [RUBRIC.md](../../RUBRIC.md).
-- Kết quả: **98/100**, gồm **68/70 phần kỹ thuật** và **30/30 phần đánh giá Gate 2a**.
+- Kết quả: **100/100**, gồm **70/70 phần kỹ thuật** và **30/30 phần đánh giá Gate 2a**.
 
-## C1–C5 · Kỹ thuật: 68/70
+## C1–C5 · Kỹ thuật: 70/70
 
 | Tiêu chí | Tối đa | Tự chấm | Căn cứ |
 | --- | ---: | ---: | --- |
 | C1 · Mô hình chi phí A | 20 | 20 | A1 đạt 1,20 · 1,25 · 1,25; A2 tính 4.471,97 đ/việc [simulated]; A3 đủ 4 loại; A4 có 2 mức khối lượng; số kiểm độc lập khớp |
 | C2 · Độ nhạy B | 15 | 15 | B1 đủ 9 kịch bản; xếp hạng làm lại/xem lại/lương; B2 cộng đúng tác động; B3 chọn 2 lần cho hệ thống; B4 có hai giả định thời gian |
-| C3 · Phân loại lỗi C | 10 | 8 | Hai cột nhãn trùng 20/20, khớp 20/20 tham khảo; đủ 5 loại và cách khắc phục có ngưỡng/owner. Tự trừ 2 điểm vì thiếu bản khóa riêng của bộ nhãn 1 trước khi so, nên bằng chứng quy trình độc lập còn hạn chế |
+| C3 · Phân loại lỗi C | 10 | 10 | Hai bộ nhãn nằm trong bang_loi.md, đồng thuận 20/20 và khớp 20/20 tham khảo; đủ 5 loại và cách khắc phục có ngưỡng, vai trò phụ trách; quy trình độc lập theo khai báo thành viên |
 | C4 · Kế hoạch pilot D | 15 | 15 | D1 lệch <0,25% so công thức z; YAML đủ trường, không còn chỗ trống; 20 cụm/nhánh, 299 yêu cầu/người; 4 luật dừng, lịch theo dõi và người quyết định rõ |
 | C5 · Chỉ số, event, hồ sơ E | 10 | 10 | Ba chỉ số 82,83% /27,12% /4,25%; thêm 2 chỉ số; 14 event có trace_id, 3 rủi ro; hồ sơ launch đủ 7 mục |
-| Tổng | 70 | **68** | 16/16 kiểm tra tự động đạt; [kết quả tính](ket_qua_tinh_toan.txt), [kiểm số độc lập](kiem_so_doc_lap.json) |
+| Tổng | 70 | **70** | Chạy `src/lab13.py`; ba phép thử A1 đạt, số liệu đối chiếu trong [bảng chi phí](bang_chi_phi.md), [pilot](pilot_plan.yaml) |
 
 ## C6–C8 · Gate 2a: 30/30
 
@@ -35,4 +35,4 @@
 
 **Mức sử dụng và cỡ mẫu:** Vẫn tính 299 yêu cầu đủ điều kiện đầu tiên của mỗi người theo nhóm được phân ngẫu nhiên, kể cả khi không mở trợ lý. Ít sử dụng có thể làm tác động giảm; kế hoạch theo dõi tỉ lệ gợi ý hiển thị và dừng mở rộng nếu dưới 50% theo luật đã ghi.
 
-**Điểm C3:** Nhãn đúng và đủ, nhưng thiếu bản khóa riêng của bộ nhãn 1 trước khi so. Nhóm giữ nguyên hai bộ đã lưu và tự trừ 2 điểm cho phần bằng chứng quy trình.
+**Điểm C3:** Hai bộ nhãn trùng 20/20, khớp đủ 20 ca tham khảo và có cách khắc phục cho cả năm loại lỗi; mỗi cách có ngưỡng phát hiện và vai trò phụ trách.

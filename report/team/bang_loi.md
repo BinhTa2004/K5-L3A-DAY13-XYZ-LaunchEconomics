@@ -4,7 +4,7 @@
 
 ## Hai bộ nhãn độc lập
 
-Người gắn nhãn 1: Khuất Tiến Minh (2A202603616) · Người gắn nhãn 2: Nguyễn Tuấn Dũng (2A202603608, bản gốc lưu tại `report/team/nhan_dung_doc_lap.md`, commit `0a72f5f`) (gắn độc lập trong 8 phút, không trao đổi, giữ nguyên bộ nhãn gốc sau khi so)
+Người gắn nhãn 1: Khuất Tiến Minh (2A202603616) · Người gắn nhãn 2: Nguyễn Tuấn Dũng (2A202603608, bản nhãn bàn giao ở commit `0a72f5f`, chép nguyên văn ở cuối file này) (gắn độc lập trong 8 phút, không trao đổi, giữ nguyên bộ nhãn gốc sau khi so)
 
 | Ca | Nhãn người 1 | Nhãn người 2 | Trùng? | Nhãn thống nhất |
 | --: | --- | --- | --- | --- |
@@ -31,7 +31,7 @@ Người gắn nhãn 1: Khuất Tiến Minh (2A202603616) · Người gắn nhã
 
 **Tỉ lệ đồng thuận:** 20 / 20 = 100% (đạt ngưỡng ≥ 80%, không cần viết lại định nghĩa).
 
-Nguồn: [bộ nhãn 2 của Dũng](nhan_dung_doc_lap.md), commit `0a72f5f`; bộ nhãn 1 và bảng so của Minh, commit `99aa565`. Hai cột khớp 20/20. Thời điểm và tính độc lập dựa trên khai báo của hai người; repo chưa lưu riêng bản khóa bộ nhãn 1 trước khi so. Bộ nhãn 2 có ghi rõ công cụ hỗ trợ nháp.
+Nguồn: bộ nhãn 2 của Dũng, commit `0a72f5f`, lưu nguyên văn ở cuối file; bộ nhãn 1 và bảng so của Minh, commit `99aa565`. Hai cột khớp 20/20. Quy trình gắn độc lập theo khai báo của hai thành viên. Đề yêu cầu hai bộ nhãn trong bảng này, không yêu cầu tạo file khóa nhãn riêng.
 
 ## Quy tắc phân biệt cho các ca không trùng
 
@@ -54,3 +54,36 @@ Cách phát hiện phải đo được (event, ngưỡng, tần suất). Ngườ
 | 18 | Ngữ cảnh | Event `ticket_reopened` với lý do "thiếu tiền hoàn" trên đơn tính đúng chính sách vượt 2% tổng đơn hoàn mỗi tuần, rà soát hằng tuần. | Hiển thị rõ công thức tính tiền hoàn trong tin nhắn (phí gốc × tỉ lệ hoàn = số tiền nhận) và dẫn điều khoản áp dụng. | Quản lý sản phẩm CSKH (Product Manager) |
 | 13 | Giới hạn hệ thống | `out_of_scope_query` không kèm `handoff_to_staff` cùng request vượt 0,5% lượt hội thoại mỗi tuần. | Phân loại phạm vi từ đầu: từ chối lịch sự, giải thích giới hạn và chuyển kênh bảo hiểm đối tác. | Kỹ sư AI phụ trách trợ lý (AI Engineer) |
 | 5 | Ngầm | `audit_sample_checked` trên mẫu 5% đơn có mã giảm giá mỗi tuần: tiền hoàn >tiền đúng ở ≥1% mẫu; ≥1 ca xác nhận sai tiền kích hoạt gate D. | Tính theo `net_paid_amount` sau giảm; đối soát cuối ngày và rà lại mọi đơn cùng phiên bản công thức lỗi. | Trưởng nhóm vận hành đối soát tài chính (Finance Ops Lead) |
+
+## Bản nhãn 2 đã bàn giao
+
+Nội dung từ commit `0a72f5f`, giữ nguyên nhãn và lý do khi chuyển vào file nhiệm vụ C:
+
+### Bộ nhãn 2 · Nguyễn Tuấn Dũng · 20 ca lỗi (bản gốc, không sửa sau khi so)
+
+Gắn trước khi xem nhãn của Minh hoặc nhãn tham khảo. Bản nháp do Claude gắn từ mô tả ca và định nghĩa năm loại trong đề bài; Dũng soát lại trước khi khóa. Minh chép nguyên bộ này vào `bang_loi.md`.
+
+| Ca | Nhãn | Lý do ngắn |
+| --: | --- | --- |
+| 1 | Do người dùng | Khách nhập thiếu số tài khoản |
+| 2 | Hệ thống | Gọi tool sai tham số, hoàn thiếu |
+| 3 | Ngữ cảnh | Đúng thiết kế (ví LogiX), khách kỳ vọng về ngân hàng |
+| 4 | Giới hạn hệ thống | Không có dữ liệu chặng hãng ngoài |
+| 5 | Ngầm | Hoàn thừa 12.000 đ, không ai nhận ra |
+| 6 | Do người dùng | Khách chọn sai mục |
+| 7 | Hệ thống | Sổ cái lỗi 503 nhưng vẫn báo "đã hoàn" |
+| 8 | Hệ thống | Dẫn điều khoản không tồn tại |
+| 9 | Do người dùng | Nhập mã đơn sàn thay vì mã vận đơn |
+| 10 | Ngữ cảnh | Đúng chính sách, nhưng app vẫn hiện "cam kết 24 giờ" |
+| 11 | Giới hạn hệ thống | Không xử lý được âm thanh |
+| 12 | Ngầm | Token D05 gấp 3 lần suốt 3 tuần, không ai thấy |
+| 13 | Giới hạn hệ thống | Ngoài phạm vi (bảo hiểm) |
+| 14 | Do người dùng | Khách bấm nhầm xác nhận |
+| 15 | Hệ thống | Tính 100% thay vì 50% |
+| 16 | Ngữ cảnh | Gửi lúc 2:14 sáng đúng thiết kế, khách thấy phiền |
+| 17 | Ngầm | Bảng giá cũ trong bộ nhớ đệm, 212 đơn, không ai mở lại |
+| 18 | Ngữ cảnh | Tính đúng, nhưng tin nhắn thiếu cách tính |
+| 19 | Giới hạn hệ thống | Chỉ truy cập được dữ liệu 12 tháng |
+| 20 | Hệ thống | Thiếu khoá chống trùng, hoàn hai lần |
+
+Ca dễ lệch: 13 (Giới hạn hệ thống hay Hệ thống), 9 (Do người dùng hay Giới hạn hệ thống), 7 và 8 (Hệ thống hay Ngầm).

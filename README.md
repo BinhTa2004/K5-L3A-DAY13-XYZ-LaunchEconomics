@@ -2,8 +2,6 @@
 
 AI20K K5, ngày 13 (Launch & Economics), buổi chiều. Mỗi nhóm dựng một bộ **hồ sơ launch v0** cho trợ lý hoàn phí của công ty giả định **LogiX-VN**, rồi bảo vệ hồ sơ trước một nhóm khác đóng vai hội đồng **Gate 2a**. Toàn bộ dữ liệu là **giả lập**. Lab không cần khoá API và không cần mạng trong lúc làm.
 
-**Thành viên nhóm XYZ:** Bình, Long, Minh, Dũng xem [TEAM.md](TEAM.md) trước khi làm: MSSV, phân công theo file, điều kiện bàn giao, thứ tự sửa code và cách tạo nhánh/pull request. Bài nhóm và báo cáo cá nhân đã tích hợp; xem [báo cáo nhóm](report/team/group_report.md) và [kết quả rà soát](report/team/kiem_tra_hoan_thien.md). Nhóm đã [tự chấm](report/team/phieu_cham.md) 98/100, gồm 68/70 kỹ thuật và 30/30 Gate 2a.
-
 **Loại bài:** Nhóm 4 người · **Thời lượng:** 4 giờ tại lớp (14:00–18:00) · **Deadline:** lớp sáng và lớp chiều đều nộp trước 23h59 GMT+7 ngày lab ([SUBMISSION.md](SUBMISSION.md#deadline-gmt7)). Hồ sơ phải sẵn sàng lúc 17:00 để duyệt chéo tại lớp.
 
 ## Mục tiêu học tập
@@ -46,7 +44,7 @@ python3 -m venv .venv
 source .venv/bin/activate            # Windows PowerShell: .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 python -c "import pandas, numpy, scipy, statsmodels; print('san sang')"
-python lab13.py                      # bản tích hợp in đủ A–B–D1–E1
+python lab13.py                      # báo NotImplementedError cho tới khi viết xong các hàm
 ```
 
 Cài đặt theo từng hệ điều hành và cách đọc dữ liệu đúng: [src/README.md](src/README.md).

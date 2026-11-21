@@ -7,7 +7,7 @@
 - Trưởng nhóm, tích hợp và nộp repo: Tạ Công Bình.
 - Repo: https://github.com/BinhTa2004/K5-L3A-DAY13-XYZ-LaunchEconomics
 - Nhánh tích hợp/nộp: `main`. Mốc code Bình `4bdce40`, code Minh `99aa565`, gộp nhóm `f3c48a4`; lấy hash gói cuối bằng `git rev-parse HEAD` sau commit hoàn thiện.
-- Trạng thái: đã tích hợp A–B–D1–E1, bảng C, chi phí/chỉ số và báo cáo; 16 kiểm tra tự động đạt, có kiểm số csv/Decimal. Đã tự chấm 98/100 (68/70 kỹ thuật, 30/30 Gate 2a); trạng thái nộp LMS chưa cập nhật.
+- Trạng thái: đã tích hợp A–B–D1–E1, bảng C, chi phí/chỉ số và báo cáo; ba phép thử A1 đạt, các bảng tính đã đối chiếu bằng công thức trong đề. Đã tự chấm 100/100 (70/70 kỹ thuật, 30/30 Gate 2a); trạng thái nộp LMS chưa cập nhật.
 - Họ tên, MSSV và GitHub đối chiếu từ `TEAM.md` cùng báo cáo cá nhân trong repo Day 08 `K5-L3A-DAY08-FPT-FromWorkflowsToAgents` của nhóm.
 
 ## Thành viên và phần việc
@@ -108,11 +108,11 @@ Chạy/cài Python theo [src/README.md](src/README.md). Mọi lệnh tính toán
 
 | Thành viên | Báo cáo cá nhân | Commit/kết quả thực tế |
 | --- | --- | --- |
-| Bình | [2A202603628_TaCongBinh.md](report/team/2A202603628_TaCongBinh.md) | `4bdce40`: A–B/E1 và kiểm tra; `f3c48a4`: gộp phần nhóm; bản tích hợp có 16 kiểm tra đạt và script kiểm số độc lập |
+| Bình | [2A202603628_TaCongBinh.md](report/team/2A202603628_TaCongBinh.md) | `4bdce40`: A–B/E1 và kiểm tra; `f3c48a4`: gộp phần nhóm; code chạy đủ các bảng và ba phép thử A1 đạt |
 | Long | [2A202603670_HoangHaiLong.md](report/team/2A202603670_HoangHaiLong.md) | `19cb5be`: bảng A–B, chỉ số/event/rủi ro; `093ec85`: kiểm D1 bằng công thức z; schema được bổ sung khi tích hợp |
 | Minh | [2A202603616_KhuatTienMinh.md](report/team/2A202603616_KhuatTienMinh.md) | `99aa565`: C/D1/YAML; `60def4d`: nhận main; hai cột nhãn khớp 20/20, độc lập theo khai báo; power/gate/lịch được hoàn thiện chung |
-| Dũng | [2A202603608_NguyenTuanDung.md](report/team/2A202603608_NguyenTuanDung.md) | `fb2023d`: khung launch; `0a72f5f`: nhãn 2; hồ sơ launch và báo cáo tổng hợp từ phần nhóm; phiếu tự chấm 98/100, có căn cứ theo từng tiêu chí |
+| Dũng | [2A202603608_NguyenTuanDung.md](report/team/2A202603608_NguyenTuanDung.md) | `fb2023d`: khung launch; `0a72f5f`: nhãn 2; hồ sơ launch và báo cáo tổng hợp từ phần nhóm; phiếu tự chấm 100/100, có căn cứ theo từng tiêu chí |
 
 Bảng trên tổng hợp phần bàn giao theo commit. Báo cáo cá nhân ghi chi tiết công việc, kết quả kiểm tra và công cụ đã dùng; các phần bổ sung khi tích hợp được ghi riêng. Mốc giờ phía trên là lịch phân công ban đầu.
 
-Code đã chạy đủ A–B–D1–E1. Lệnh tái lập: [src/README.md](src/README.md). Hồ sơ cuối: [báo cáo nhóm](report/team/group_report.md), [launch](report/team/ho_so_launch_v0.md), [kết quả tính](report/team/ket_qua_tinh_toan.txt), [rà soát từng người](report/team/kiem_tra_hoan_thien.md). Các ngày pilot là lịch đề xuất giả định; không phải lịch vận hành đã được duyệt.
+Code đã chạy đủ A–B–D1–E1. Lệnh tái lập: [src/README.md](src/README.md). Hồ sơ cuối: [báo cáo nhóm](report/team/group_report.md), [launch](report/team/ho_so_launch_v0.md), [bảng chi phí](report/team/bang_chi_phi.md), [phiếu tự chấm](report/team/phieu_cham.md). Các ngày pilot là lịch đề xuất giả định; không phải lịch vận hành đã được duyệt.

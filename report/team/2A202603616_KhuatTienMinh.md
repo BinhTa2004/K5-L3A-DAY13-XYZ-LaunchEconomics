@@ -20,15 +20,15 @@ Khi tích hợp, kế hoạch được bổ sung power ở mức +5/+6, phân bi
 
 ## 4. Bằng chứng và kết quả
 
-[Bảng C](bang_loi.md), [pilot](pilot_plan.yaml), [code](../../src/lab13.py), [output](ket_qua_tinh_toan.txt), [kiểm độc lập](kiem_so_doc_lap.json). Commit gốc `99aa565`, tích hợp `60def4d`; giữ nguyên [nhãn Dũng](nhan_dung_doc_lap.md).
+[Bảng C](bang_loi.md), [pilot](pilot_plan.yaml), [code](../../src/lab13.py). Commit gốc `99aa565`, tích hợp `60def4d`; giữ nguyên [nhãn Dũng trong bảng C](bang_loi.md).
 
 D1: 1.250 yêu cầu/nhóm; DE 2,48, 3.100 yêu cầu/nhóm và 42 người/nhóm (tổng 84>40); trần 20 staff/nhóm <1.000, 6 depot/nhóm <300. Với +6 điểm: 20×299=5.980, DE 6,96, n_eff=859,1954; power +6=0,8010, +5=0,6418. Công thức z cho 1.251/3.103, sai khác <0,25%.
 
-Lịch giả định: khởi chạy 01/12/2026, đủ 20 người can thiệp từ 15/12, thu mẫu 15–28/12, theo dõi đến 04/01/2027, quyết định 05/01. Thiếu 299 yêu cầu ở bất kỳ người nào thì không mở rộng vì thiếu mẫu, không đổi MDE sau khi xem dữ liệu. YAML có bốn luật dừng; 16 kiểm tra tích hợp đạt.
+Lịch giả định: khởi chạy 01/12/2026, đủ 20 người can thiệp từ 15/12, thu mẫu 15–28/12, theo dõi đến 04/01/2027, quyết định 05/01. Thiếu 299 yêu cầu ở bất kỳ người nào thì không mở rộng vì thiếu mẫu, không đổi MDE sau khi xem dữ liệu. YAML có bốn luật dừng, đọc được bằng yaml.safe_load; chương trình chạy hết các phần.
 
 ## 5. Công cụ AI và kiểm tra
 
-Antigravity/Gemini hỗ trợ D1 và YAML; ChatGPT/Codex hỗ trợ power, lịch, luật dừng và báo cáo. Kiểm lại bằng công thức z, statsmodels, csv/Decimal và `yaml.safe_load`.
+Antigravity/Gemini hỗ trợ D1 và YAML; ChatGPT/Codex hỗ trợ power, lịch, luật dừng và báo cáo. Kiểm lại bằng công thức z, statsmodels và `yaml.safe_load`.
 
 ## 6. Tự đánh giá
 

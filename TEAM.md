@@ -7,7 +7,7 @@
 - Trưởng nhóm, tích hợp và nộp repo: Tạ Công Bình.
 - Repo: https://github.com/BinhTa2004/K5-L3A-DAY13-XYZ-LaunchEconomics
 - Nhánh tích hợp/nộp: `main`. Commit chốt bài sẽ bổ sung sau khi hoàn thành.
-- Trạng thái: đã phân công; code và kết quả A–E chưa hoàn thành. Các việc dưới đây là kế hoạch, chưa phải bằng chứng đóng góp đã thực hiện.
+- Trạng thái: Bình đã triển khai code A–B và phép tính ba chỉ số E1, có 12 bài kiểm tra tự động đạt; chờ Long kiểm độc lập và Minh bổ sung D1. Hồ sơ của các thành viên tiếp tục hoàn thiện theo phân công.
 - Họ tên, MSSV và GitHub đối chiếu từ `TEAM.md` cùng báo cáo cá nhân trong repo Day 08 `K5-L3A-DAY08-FPT-FromWorkflowsToAgents` của nhóm.
 
 ## Thành viên và phần việc
@@ -108,9 +108,11 @@ Chạy/cài Python theo [src/README.md](src/README.md). Mọi lệnh tính toán
 
 | Thành viên | Báo cáo cá nhân | Commit/kết quả thực tế |
 | --- | --- | --- |
-| Bình | [2A202603628_TaCongBinh.md](report/team/2A202603628_TaCongBinh.md) | Chưa ghi nhận; bổ sung sau khi làm |
+| Bình | [2A202603628_TaCongBinh.md](report/team/2A202603628_TaCongBinh.md) | Code A1–A4, B1–B4, ba chỉ số E1 trong `src/lab13.py`; `python -m unittest -v test_lab13`: 12/12 đạt; có ChatGPT/Codex hỗ trợ triển khai và kiểm tra; chờ Long soát độc lập |
 | Long | [2A202603670_HoangHaiLong.md](report/team/2A202603670_HoangHaiLong.md) | Chưa ghi nhận; bổ sung sau khi làm |
 | Minh | [2A202603616_KhuatTienMinh.md](report/team/2A202603616_KhuatTienMinh.md) | Chưa ghi nhận; bổ sung sau khi làm |
 | Dũng | [2A202603608_NguyenTuanDung.md](report/team/2A202603608_NguyenTuanDung.md) | Chưa ghi nhận; bổ sung sau khi làm |
 
 Bốn báo cáo đã tạo sẵn thông tin và phần việc dự kiến. Mỗi người tự bổ sung đóng góp, công cụ AI, cách kiểm tra và tự đánh giá sau khi thực hiện. Việc chuẩn bị phân công có ChatGPT/Codex hỗ trợ đọc repo Day 08 và yêu cầu Lab 13.
+
+Phần tính E1 đã được Bình bổ sung sớm cùng A–B để Long có thể kiểm ngay. Minh giữ lời gọi `in_chi_so(reqs)` khi thêm D1 vào vị trí `TODO CP4` trong `main()`. Lệnh tái lập và ghi chú mô hình: [src/README.md](src/README.md).

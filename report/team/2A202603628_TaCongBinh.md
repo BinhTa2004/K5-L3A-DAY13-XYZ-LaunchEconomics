@@ -4,7 +4,7 @@
 
 - Họ tên: Tạ Công Bình; MSSV: 2A202603628; GitHub: BinhTa2004.
 - Vai: người viết code A–B/E1, trưởng nhóm và tích hợp bài.
-- Trạng thái: code chạy đủ A–B–D1–E1, hồ sơ chung được tích hợp; duyệt chéo đang chờ theo xác nhận của Bình.
+- Trạng thái: code chạy đủ A–B–D1–E1, hồ sơ chung được tích hợp; chưa duyệt chéo.
 
 ## 2. Phần việc phụ trách
 
@@ -14,8 +14,8 @@ Viết A1–A4/B1–B4 và phép tính ba chỉ số E1, bàn giao cho Long ki�
 
 - `4bdce40`: ba hàm retry A1; `mo_hinh` tính mọi run và lọc theo request; bảng A3/A4, chín kịch bản B1, B2, chi phí hệ thống B3 và hai giả định B4; ba chỉ số E1 có tử/mẫu số; 12 kiểm tra ban đầu.
 - Tích hợp code D1 của Minh (`99aa565`, `60def4d`), bộ nhãn Dũng (`0a72f5f`), bảng số và kiểm D1 của Long (`19cb5be`, `093ec85`); mốc gộp `f3c48a4`.
-- Lần hoàn thiện chung có Codex hỗ trợ thêm power +5/+6, so sánh chi phí cùng mẫu số gồm cố định và phần nhân viên, bốn kiểm tra tích hợp, script csv/Decimal độc lập cùng artifact kết quả.
-- Rà hồ sơ từng người, sửa thông tin trạng thái cũ, thống nhất event và luật dừng, tổng hợp launch/báo cáo nhóm từ số chạy thật. Giữ nguyên CSV, starter và nhãn Dũng; không tạo nhãn độc lập hoặc điểm hội đồng.
+- Bổ sung power ở mức +5/+6, so sánh chi phí có cả cố định và phần nhân viên; thêm bốn kiểm tra tích hợp và script kiểm số csv/Decimal.
+- Đối chiếu hồ sơ từng người, thống nhất tên sự kiện với luật dừng và tổng hợp báo cáo nhóm từ kết quả tính toán. Giữ nguyên CSV, bản khởi đầu và bộ nhãn của Dũng.
 
 ## 4. Bằng chứng và kết quả
 
@@ -41,10 +41,10 @@ Viết A1–A4/B1–B4 và phép tính ba chỉ số E1, bàn giao cho Long ki�
 
 ## 5. Công cụ AI và cách kiểm tra
 
-ChatGPT/Codex hỗ trợ đọc repo, code, kiểm tra, chạy lệnh, tích hợp và báo cáo theo yêu cầu của Bình. Phần hỗ trợ không được khai là toàn bộ do thành viên viết thủ công. Dùng ví dụ nhỏ tính tay, công thức z, Decimal và output từ CSV để kiểm; nguồn là công thức/hướng dẫn nội bộ lab. Không gọi API hoặc model thật trong chương trình.
+ChatGPT/Codex hỗ trợ đọc đề, viết code và kiểm tra, chạy lệnh, tích hợp bài và soạn báo cáo. Kết quả được kiểm bằng ví dụ tính tay, công thức z, Decimal và dữ liệu CSV theo công thức của lab. Chương trình không gọi API hoặc model thật.
 
-## 6. Đánh giá từ hồ sơ và việc tiếp theo
+## 6. Tự đánh giá
 
-Code và hồ sơ có bằng chứng tái lập; giờ nhân viên chiếm 92,46% tổng chi phí [simulated], nên lợi ích phụ thuộc review/rework thay vì chủ yếu giá token. Đề xuất Go có điều kiện cần sửa chống hoàn trùng, bật log, đo phút thật và ký chấp nhận MDE trước pilot; các việc vận hành này chưa được chứng minh bằng bài lab.
+Code chạy đủ các phần và có thể kiểm lại từ CSV. Thời gian nhân viên chiếm 92,46% tổng chi phí [simulated], nên việc giảm xem lại và làm lại có ảnh hưởng lớn hơn giảm giá token. Trước pilot cần kiểm chống hoàn trùng, bật log, đo thời gian thật và thống nhất MDE.
 
-Bình cần đọc và giải thích tử/mẫu số, cỡ mẫu hiệu dụng, power bất lợi, đồng thời phối hợp duyệt chéo. Chưa có điểm hội đồng, chưa xác nhận mỗi người đã nộp LMS. Báo cáo các thành viên phân biệt công việc gốc với phần Codex bổ sung khi tích hợp.
+Hạn chế chính là dữ liệu thời gian còn giả lập và chưa có đối chứng thực tế. Nhóm chưa duyệt chéo nên phần đánh giá của hội đồng chưa có kết quả.

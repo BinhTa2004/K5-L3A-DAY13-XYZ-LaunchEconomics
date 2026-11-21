@@ -1,6 +1,6 @@
 # Đặc tả chỉ số, event và rủi ro kinh tế · E1, E2
 
-Số cơ sở từ `src/lab13.py` của Bình (`4bdce40`), Long kiểm ở `19cb5be` và `093ec85`; lần tích hợp cuối bổ sung schema để các gate C–D đo được. Toàn bộ dữ liệu là giả lập; thời gian và kết quả chi phí dẫn từ cột `_simulated` có nhãn simulated.
+Số cơ sở từ `src/lab13.py` của Bình (`4bdce40`), Long kiểm ở `19cb5be` và `093ec85`; bảng sự kiện bên dưới dùng để tính chỉ số và theo dõi các ngưỡng dừng ở C–D. Toàn bộ dữ liệu là giả lập; thời gian và kết quả chi phí dẫn từ cột `_simulated` có nhãn simulated.
 
 ## E1 · Chỉ số
 

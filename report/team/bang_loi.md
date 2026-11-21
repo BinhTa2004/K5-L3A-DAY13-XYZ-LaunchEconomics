@@ -31,7 +31,7 @@ Người gắn nhãn 1: Khuất Tiến Minh (2A202603616) · Người gắn nhã
 
 **Tỉ lệ đồng thuận:** 20 / 20 = 100% (đạt ngưỡng ≥ 80%, không cần viết lại định nghĩa).
 
-Nguồn giữ nguyên: nhãn 2 từ [bản của Dũng](nhan_dung_doc_lap.md) (`0a72f5f`, có khai báo Claude hỗ trợ nháp); nhãn 1 và bảng so từ commit Minh `99aa565`. Rà soát cuối xác nhận hai cột trùng 20/20; tính độc lập và thời gian gắn là khai báo của thành viên, không được suy ra chỉ từ mức đồng thuận. Chưa thấy bản khóa riêng của nhãn 1 trước khi so trong repo; không tạo lại bản đó sau khi đã so.
+Nguồn: [bộ nhãn 2 của Dũng](nhan_dung_doc_lap.md), commit `0a72f5f`; bộ nhãn 1 và bảng so của Minh, commit `99aa565`. Hai cột khớp 20/20. Thời điểm và tính độc lập dựa trên khai báo của hai người; repo chưa lưu riêng bản khóa bộ nhãn 1 trước khi so. Bộ nhãn 2 có ghi rõ công cụ hỗ trợ nháp.
 
 ## Quy tắc phân biệt cho các ca không trùng
 

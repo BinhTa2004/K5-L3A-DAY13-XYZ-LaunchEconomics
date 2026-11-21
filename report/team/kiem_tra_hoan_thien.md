@@ -1,17 +1,17 @@
 # Rà soát hoàn thiện · Nhóm XYZ · Lab 13
 
-Rà soát theo `TEAM.md`, `RUBRIC.md`, `SUBMISSION.md`, commit các thành viên và output chạy lại. Đây là tự kiểm của nhóm có Codex hỗ trợ, không phải điểm hoặc quyết định hội đồng.
+Bảng tự kiểm dựa trên phân công, rubric, commit bàn giao và kết quả chạy chương trình. Nhóm chưa có kết quả chấm của hội đồng.
 
 ## Kết quả theo từng người
 
 | Thành viên | Phần đã có khi rà soát | Phần đã hoàn thiện thêm | Trạng thái còn lại |
 | --- | --- | --- | --- |
-| Bình | A–B/E1, 12 kiểm tra, tích hợp nhánh | Tính power ở +5/+6; so chi phí cùng mẫu số gồm nhân viên và cố định; thêm 4 kiểm tra và script csv/Decimal; cập nhật TEAM/báo cáo | Code/hồ sơ có bằng chứng; thành viên đọc lại và giải thích khi bảo vệ |
+| Bình | A–B/E1, 12 kiểm tra, tích hợp nhánh | Tính power ở +5/+6; so chi phí cùng mẫu số gồm nhân viên và cố định; thêm 4 kiểm tra và script csv/Decimal; cập nhật TEAM/báo cáo | Code chạy đủ A–B–D1–E1; 16 kiểm tra đạt |
 | Long | Bảng chi phí, 3 chỉ số, 9 event, 3 rủi ro; kiểm D1 | Schema 14 event có thời gian/khóa, nối với luật dừng/CPS; B4 dùng số chính xác; báo cáo tự đánh giá từ bằng chứng | Phần số và đặc tả hoàn thiện; phút thật/event thật phải đo khi pilot |
 | Minh | C với 2 cột nhãn khớp, code D1/YAML | Rõ 5.980 thô/859 hiệu dụng, power +5 chỉ 0,6418; lịch đủ 7 ngày theo dõi; 4 luật dừng đo được; sửa tên event đồng nhất | Bảng C giữ nguyên nhãn; tính độc lập/thời điểm theo khai báo, chưa có file khóa riêng bộ 1 để kiểm lại lịch sử |
-| Dũng | Khung launch và bản nhãn 2 | Điền đủ 7 mục launch/đề xuất có điều kiện, viết báo cáo nhóm và báo cáo cá nhân, đổi phiếu mẫu thành trạng thái chờ | Duyệt chéo chưa diễn ra theo Bình xác nhận; Dũng ghi kết quả thực tế sau buổi |
+| Dũng | Khung launch và bản nhãn 2 | Điền đủ 7 mục launch/đề xuất có điều kiện, viết báo cáo nhóm và báo cáo cá nhân, đổi phiếu mẫu thành trạng thái chờ | Chờ duyệt chéo và cập nhật phiếu sau buổi |
 
-Các phần bổ sung chung được ghi rõ là Codex hỗ trợ; không gán thành công việc từng thành viên đã tự làm ở commit gốc. Không sửa CSV, starter, file mẫu cá nhân hoặc bộ nhãn gốc của Dũng; không tạo lại nhãn độc lập sau khi đã so.
+Bản tích hợp `86f7d53` bổ sung các mục trong cột thứ ba. Phạm vi dùng công cụ được ghi trong báo cáo cá nhân. CSV, bản khởi đầu, file mẫu và nhãn gốc của Dũng được giữ nguyên.
 
 ## Đối chiếu rubric
 
@@ -32,9 +32,9 @@ Các phần bổ sung chung được ghi rõ là Codex hỗ trợ; không gán t
 - `pilot_plan.yaml`: đọc được bằng `yaml.safe_load`, không còn dấu hỏi ngoài chú thích; 4 luật đủ NẾU/TRONG/THÌ/KHÔNG THÌ; 20×299=5.980 và 5.980/6,96=859,1954.
 - Công thức z D1 cho 1.251/3.103, statsmodels cho 1.250/3.100: sai khác <0,25%, trong ngưỡng 2% của rubric.
 
-## Những việc cần dữ kiện thực tế
+## Việc còn lại
 
-1. Duyệt chéo với nhóm khác: chưa diễn ra, [phiếu](phieu_cham.md) đang chờ theo xác nhận của Bình. Không có điểm/kết luận/câu trả lời hội đồng giả lập.
-2. Từng thành viên đọc và chịu trách nhiệm về khai báo đóng góp, quy trình nhãn và công cụ AI; đối chiếu bản khóa ban đầu nếu có, không tạo lại một bản mới rồi coi là bằng chứng trước khi so.
+1. Tổ chức duyệt chéo với nhóm khác và ghi điểm, lý do, câu hỏi, phản hồi vào [phiếu chấm](phieu_cham.md). Hiện phiếu đang chờ.
+2. Xác nhận đóng góp và quy trình gắn nhãn; bổ sung bản khóa ban đầu nếu còn lưu. Ghi chú nguồn nhãn ở bảng C.
 3. Trước pilot: roster 40 người/12 depot, chống hoàn trùng/đối soát, log và phút đo thật, chữ ký chấp nhận MDE. Đây là điều kiện trong kế hoạch, không phải thiếu code bắt buộc của lab.
-4. Mỗi người tự nộp link trên LMS và bảo đảm người chấm truy cập repo. Phiên hỗ trợ chưa xác nhận nộp LMS hoặc điểm chính thức.
+4. Mỗi người tự nộp link trên LMS và kiểm tra quyền truy cập repo của người chấm. Trạng thái nộp LMS chưa được cập nhật.

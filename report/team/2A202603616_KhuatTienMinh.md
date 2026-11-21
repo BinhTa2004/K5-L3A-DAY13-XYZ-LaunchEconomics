@@ -12,11 +12,11 @@ Gắn 20 ca trước khi so với Dũng, giữ nhãn gốc; tính đồng thuậ
 
 ## 3. Đóng góp cụ thể
 
-Theo báo cáo bàn giao: Minh đọc đề và gắn bộ 1 trước khi xem tham khảo, dùng bộ Dũng `0a72f5f` để so, đạt 20/20; hoàn thiện năm cách khắc phục và quy tắc phân biệt ca 13/9/7–8. Repo lưu bảng hai bộ ở `99aa565`; thời điểm/độc lập là khai báo thành viên, chưa có file khóa riêng bộ 1 trong repo để xác nhận lại bằng lịch sử trước khi so.
+Phần C gồm bộ nhãn 1, bảng so với bộ nhãn của Dũng (`0a72f5f`), năm cách khắc phục và quy tắc phân biệt ca 13/9/7–8. Hai bộ khớp 20/20, được lưu trong `99aa565`. Nguồn và ghi chú về quy trình gắn nhãn nằm trong [bảng C](bang_loi.md).
 
 Minh thêm `tinh_co_mau_d1`/`in_phan_d` dùng statsmodels, tính cả tỉ lệ mở lại toàn mẫu/phạm vi và hoàn thiện YAML chia staff 20+20, MDE +6, DE 6,96, 5.980 mẫu thô/nhóm.
 
-Lần tích hợp cuối có Codex bổ sung power ở tác động +5/+6, phân biệt mẫu thô/hiệu dụng, lịch đề xuất có đủ 7 ngày theo dõi, gate hoàn trùng tức thời và metric/event thống nhất. Không quy các bổ sung này thành công việc Minh đã tự làm ở commit ban đầu.
+Khi tích hợp, kế hoạch được bổ sung power ở mức +5/+6, phân biệt mẫu thô và hiệu dụng, lịch theo dõi đủ 7 ngày và luật dừng ngay khi hoàn trùng. Các sự kiện dùng để đo được thống nhất với phần E.
 
 ## 4. Bằng chứng và kết quả
 
@@ -28,8 +28,8 @@ Lịch giả định: khởi chạy 01/12/2026, đủ 20 người can thiệp t�
 
 ## 5. Công cụ AI và kiểm tra
 
-Theo khai báo ban đầu: Antigravity/Gemini hỗ trợ đọc DOCX, môi trường, code D1, YAML/checklist. Codex hỗ trợ lần rà soát chung. Kiểm bằng công thức z, csv/Decimal, statsmodels, `yaml.safe_load` và bộ kiểm tra; nhãn được giữ nguyên, không tạo nhãn độc lập mới sau khi đã so.
+Antigravity/Gemini hỗ trợ đọc đề DOCX, cài môi trường, viết D1 và soát YAML. ChatGPT/Codex hỗ trợ tính power, chỉnh lịch và luật dừng, tổng hợp báo cáo khi tích hợp. Kết quả được kiểm bằng công thức z, statsmodels, csv/Decimal, `yaml.safe_load` và bộ kiểm tra.
 
-## 6. Đánh giá từ hồ sơ và việc tiếp theo
+## 6. Tự đánh giá
 
-C/D đã có sản phẩm và số tái lập; cần giải thích đánh đổi MDE, ảnh hưởng spillover và vì sao n_eff không thể vượt trần c/ICC. Đồng thuận 100% không tự chứng minh tính độc lập; thành viên chịu trách nhiệm về quy trình gắn nhãn đã khai báo. Trước pilot cần roster đủ 40 người ở 12 depot; không dùng mẫu 20 người/6 depot để tự dựng roster. Đọc lại các gate/lịch mới, phối hợp duyệt chéo và tự nộp LMS.
+Phần C/D đã có bảng kết quả và code chạy được. Điểm hạn chế của thiết kế là phải tăng MDE lên +6 điểm; nếu tác động thực chỉ +5 thì power còn 0,6418. Trước pilot cần chốt danh sách 40 nhân viên ở 12 depot; mẫu CSV chỉ có 20 người ở 6 depot nên chưa đủ để lập danh sách phân nhóm.

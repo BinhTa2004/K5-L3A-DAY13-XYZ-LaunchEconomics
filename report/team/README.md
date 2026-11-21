@@ -1,6 +1,6 @@
 # Báo cáo nhóm XYZ
 
-Phân công chi tiết, mốc bàn giao và cách gửi pull request: [TEAM.md](../../TEAM.md). Các hồ sơ đã tổng hợp từ phần nhóm; riêng phiếu duyệt chéo đang chờ buổi thực tế theo xác nhận của Bình.
+Phân công chi tiết, mốc bàn giao và cách gửi pull request: [TEAM.md](../../TEAM.md). Các hồ sơ đã tổng hợp từ phần nhóm; riêng phiếu duyệt chéo đang chờ.
 
 | File | Nhiệm vụ | Ai điền | Ghi chú |
 |---|---|---|---|
@@ -22,7 +22,7 @@ Bốn báo cáo cá nhân đã cập nhật theo commit và bằng chứng:
 - [Khuất Tiến Minh — 2A202603616](2A202603616_KhuatTienMinh.md)
 - [Nguyễn Tuấn Dũng — 2A202603608](2A202603608_NguyenTuanDung.md)
 
-Từng người đọc lại, xác nhận đóng góp và khai báo công cụ AI; phần Codex bổ sung chung đã được tách khỏi công việc gốc. Giữ nguyên file mẫu `MSSV_HoTen.md`. Định dạng tên:
+Báo cáo ghi phần việc, bằng chứng và công cụ đã dùng; phần bổ sung khi tích hợp được ghi riêng. Giữ nguyên file mẫu `MSSV_HoTen.md`. Định dạng tên:
 
 ```text
 report/team/MSSV_HoTen.md

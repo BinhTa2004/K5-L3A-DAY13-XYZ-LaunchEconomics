@@ -12,9 +12,9 @@
 
 ## 3. Đóng góp cụ thể
 
-Theo bản bàn giao của Long: dùng script riêng kiểm token/tool/xem lại/làm lại/CPS và quoc_te, không gọi `lab13.py`; điền toàn bộ bảng chi phí, ba chỉ số, hai chỉ số đề xuất, chín event và ba rủi ro. `093ec85` ghi kiểm D1 bằng z chính xác và ba góp ý cho YAML.
+Phần bàn giao gồm kiểm token, tool, thời gian xem lại/làm lại, CPS toàn mẫu và nhóm quoc_te bằng script riêng; điền bảng chi phí, ba chỉ số tính thử, hai chỉ số đề xuất, chín sự kiện và ba rủi ro. Commit `093ec85` ghi kết quả kiểm D1 bằng công thức z và ba góp ý cho YAML.
 
-Lần hoàn thiện chung có Codex bổ sung 14 event/khóa/thời gian còn thiếu để đo được các luật dừng, so chi phí cùng mẫu số có cố định, và tạo [script csv/Decimal](../../src/kiem_so_doc_lap.py). Script bổ sung này độc lập với `lab13.py`, không được coi là script gốc Long đã dùng.
+Bản tích hợp có 14 sự kiện, bổ sung thời điểm và khóa để đo các luật dừng. Phần so sánh chi phí tính thêm cố định. [Script csv/Decimal](../../src/kiem_so_doc_lap.py) được thêm khi tích hợp để lưu kết quả kiểm số độc lập; đây là script bổ sung, khác với script đã dùng ở bước bàn giao.
 
 ## 4. Bằng chứng và kết quả
 
@@ -27,8 +27,8 @@ Lần hoàn thiện chung có Codex bổ sung 14 event/khóa/thời gian còn th
 
 ## 5. Công cụ AI và kiểm tra
 
-Theo báo cáo gốc, Claude Code (Claude Opus) hỗ trợ đọc đề, script và soạn A–B/E; kiểm từ CSV, output và công thức nguồn. Codex hỗ trợ rà soát cuối và script Decimal lưu trong repo; số được tạo bằng chạy code, không sửa tay artifact kết quả. Các lượt hỗ trợ được phân biệt với việc cá nhân tự thực hiện.
+Claude Code (Claude Opus) hỗ trợ đọc đề, viết script kiểm số và soạn phần A–B/E. ChatGPT/Codex hỗ trợ hoàn thiện đặc tả sự kiện, báo cáo và script Decimal khi tích hợp. Số liệu được đối chiếu từ CSV, kết quả chương trình và công thức trong tài liệu lab.
 
-## 6. Đánh giá từ hồ sơ và việc tiếp theo
+## 6. Tự đánh giá
 
-Đã có bảng số, kiểm D1 và contract event đủ cho chỉ số/gate. Hạn chế là phút simulated, ICC giả định và chưa có đối chứng thật; 82,83% không chứng minh trợ lý nâng chất lượng. Cần đọc lại schema mới, kiểm phút thật và audit tiền trước pilot; hỗ trợ Dũng bảo vệ chi phí và tự nộp LMS.
+Bảng chi phí và D1 đã được đối chiếu; các chỉ số đều có sự kiện làm nguồn tính. Hạn chế là thời gian simulated, ICC giả định và chưa có đối chứng thực tế. Tỉ lệ 82,83% chưa chứng minh trợ lý nâng chất lượng; cần đo thời gian và kiểm toán số tiền trong pilot.

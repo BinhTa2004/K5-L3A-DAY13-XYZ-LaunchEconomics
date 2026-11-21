@@ -20,7 +20,8 @@ Trạng thái: mới phân công, chưa ghi nhận kết quả thực hiện. Th
 - Tự làm: kiểm số độc lập phần A (token, tool, xem lại, làm lại, chi phí mỗi việc thành công, dòng quoc_te ở A3) bằng script riêng, không gọi `lab13.py`.
 - Tự làm: điền toàn bộ `bang_chi_phi.md` (A1–A4, B1–B4) và câu trả lời. Tính tay thêm mức khối lượng hoà vốn ở A4 (khoảng 6.200 yêu cầu/tháng [simulated]) và chênh lệch chi phí cả hệ thống ở B3 (548.560 đ [simulated]).
 - Tự làm: viết `chi_so.md`: 3 chỉ số tính thử, 2 chỉ số tự đề xuất, 9 event có `trace_id`, kiểm tra chéo chỉ số với event, 3 dòng rủi ro kinh tế.
-- Phối hợp: dùng output A–B và E1 của Bình (commit `4bdce40`). Phần kiểm độc lập D1 của Minh chưa làm vì D1 chưa có trong code.
+- Phối hợp: dùng output A–B và E1 của Bình (commit `4bdce40`).
+- Tự làm: kiểm độc lập D1 của Minh (commit `99aa565`, nhánh `day13/minh-errors-pilot`) bằng công thức cỡ mẫu trong `docs/` với z chính xác, không dùng statsmodels. Cả 5 câu khớp. Đã gửi Minh 3 góp ý cho `pilot_plan.yaml`.
 
 ## 4. Bằng chứng
 
@@ -29,6 +30,9 @@ Trạng thái: mới phân công, chưa ghi nhận kết quả thực hiện. Th
 - Kiểm độc lập: token = 5.771.712 / 1.000 × 26 + 734.774 / 1.000 × 130 = 245.585,13 đ; tool = 5.600 × 15 = 84.000 đ; chi phí mỗi việc thành công = 4.373.585,13 / 978 = 4.471,97 đ [simulated]. Lệch 0% so với output của Bình.
 - B1: mỗi kịch bản "giảm một nửa" giảm đúng nửa mức tăng của "gấp đôi" (5,62 → 2,81; 40,70 → 20,35; 51,77 → 25,88).
 - `grep -rni production report/team` không in gì.
+- Kiểm D1: a) 1.251 so với 1.250 của Minh; b) DE 2,48, 3.103 so với 3.100, 42 nhân viên/nhóm, tổng 84 > 40; c) trần 1.000; d) trần 300; e) m ≥ 299, DE 6,96, n_eff 859,2. Lệch tối đa 0,25%.
+- Con số bất lợi: nếu tác động thật chỉ +5 điểm thì với n_eff 859 power chỉ còn khoảng 0,64.
+- `pilot_plan.yaml` của Minh đọc được bằng `yaml.safe_load`, có 3 luật dừng, không còn dấu `?` ngoài chú thích.
 
 ## 5. Công cụ AI đã dùng
 

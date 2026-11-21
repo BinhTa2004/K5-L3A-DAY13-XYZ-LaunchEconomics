@@ -7,7 +7,7 @@
 - Trưởng nhóm, tích hợp và nộp repo: Tạ Công Bình.
 - Repo: https://github.com/BinhTa2004/K5-L3A-DAY13-XYZ-LaunchEconomics
 - Nhánh tích hợp/nộp: `main`. Mốc code Bình `4bdce40`, code Minh `99aa565`, gộp nhóm `f3c48a4`; lấy hash gói cuối bằng `git rev-parse HEAD` sau commit hoàn thiện.
-- Trạng thái: đã tích hợp A–B–D1–E1, bảng C, chi phí/chỉ số và báo cáo; 16 kiểm tra tự động đạt, có kiểm số csv/Decimal. Chưa duyệt chéo; chưa có điểm hội đồng hoặc cập nhật nộp LMS.
+- Trạng thái: đã tích hợp A–B–D1–E1, bảng C, chi phí/chỉ số và báo cáo; 16 kiểm tra tự động đạt, có kiểm số csv/Decimal. Đã tự chấm 98/100 (68/70 kỹ thuật, 30/30 Gate 2a); trạng thái nộp LMS chưa cập nhật.
 - Họ tên, MSSV và GitHub đối chiếu từ `TEAM.md` cùng báo cáo cá nhân trong repo Day 08 `K5-L3A-DAY08-FPT-FromWorkflowsToAgents` của nhóm.
 
 ## Thành viên và phần việc
@@ -17,7 +17,7 @@
 | 1 | Tạ Công Bình | 2A202603628 | BinhTa2004 | Viết code A–B; hỗ trợ tính E; tích hợp, kiểm tra và push bài chung |
 | 2 | Hoàng Hải Long | 2A202603670 | hwangron | Kiểm số; bảng chi phí A–B; chỉ số, event và rủi ro E1–E2 |
 | 3 | Khuất Tiến Minh | 2A202603616 | Minhktm02 | Gắn nhãn 1; tổng hợp C; viết code cỡ mẫu D1 sau giải lao và kế hoạch pilot D |
-| 4 | Nguyễn Tuấn Dũng | 2A202603608 | dzungapr6th99 | Gắn nhãn 2, giữ hồ sơ; hồ sơ launch E3; báo cáo nhóm và phiếu duyệt chéo |
+| 4 | Nguyễn Tuấn Dũng | 2A202603608 | dzungapr6th99 | Gắn nhãn 2, giữ hồ sơ; hồ sơ launch E3; báo cáo nhóm và phiếu tự chấm |
 
 ## Đầu việc và điều kiện bàn giao
 
@@ -26,7 +26,7 @@
 | Bình | A1: ba hàm xác suất/chi phí; A2: `mo_hinh`; A3: bốn loại yêu cầu; A4: cố định ở hai mức khối lượng; B1–B4: độ nhạy, chạy lại và xem lại 100% | `src/lab13.py` in ba phép thử ĐẠT và đủ bảng A–B; chuyển output cho Long, chuyển code đã tích hợp cho Minh |
 | Long | Tính tay ít nhất một khoản đối chiếu; điền A1–A4, B1–B4 vào bảng chi phí; kiểm chi phí cả hệ thống; E1: ba chỉ số có kết quả, thêm hai chỉ số, ít nhất sáu event có `trace_id`; E2: ít nhất hai rủi ro có số | `bang_chi_phi.md`, `chi_so.md` có công thức/nguồn số và nhãn `simulated` khi cần; gửi số chính cho Dũng; kiểm độc lập D1 của Minh |
 | Minh | Gắn 20 ca độc lập; nhận bộ nhãn của Dũng sau khi cả hai khóa nhãn; tính đồng thuận, ghi quy tắc và năm cách khắc phục; viết D1 vào `lab13.py`, hoàn thiện D1–D3 trong YAML | `bang_loi.md` đủ hai bộ nhãn và năm loại lỗi; `pilot_plan.yaml` đủ trường, đọc được, không còn dấu hỏi ngoài chú thích, có ít nhất ba luật dừng bốn vế và giải thích đánh đổi cỡ mẫu |
-| Dũng | Gắn 20 ca độc lập; kiểm bảng C sau tổng hợp; điền dần bảy mục hồ sơ launch; tổng hợp báo cáo nhóm; ghi phiếu chấm sau khi nhận hồ sơ nhóm khác | `ho_so_launch_v0.md` có số, trạng thái, vai trò phụ trách và đề xuất có căn cứ; `group_report.md` dẫn đúng bằng chứng; `phieu_cham.md` ghi đúng việc duyệt chéo thực tế |
+| Dũng | Gắn 20 ca độc lập; kiểm bảng C sau tổng hợp; điền dần bảy mục hồ sơ launch; tổng hợp báo cáo nhóm; hoàn thiện phiếu tự chấm C1–C8 theo hồ sơ nhóm | `ho_so_launch_v0.md` có số, trạng thái, vai trò phụ trách và đề xuất có căn cứ; `group_report.md` dẫn đúng bằng chứng; `phieu_cham.md` ghi điểm tự chấm và lý do theo bằng chứng |
 
 Mọi thành viên tự điền báo cáo cá nhân, giải thích được phần mình và tự nộp link repo trên LMS.
 
@@ -60,8 +60,8 @@ Mốc giờ theo lịch mẫu trong [CHECKPOINTS.md](CHECKPOINTS.md), không ph�
 | 14:53–15:20 · CP2 | Viết/chạy B1–B4, tích hợp A–B | Hoàn thiện bảng B | Chuẩn bị cách kiểm YAML/cỡ mẫu | Nhận số A–B vào hồ sơ |
 | 15:35–16:08 · CP3 | Sửa/kiểm A–B nếu cần | Soát chi phí cả hệ thống | 8 phút gắn nhãn riêng; sau đó tổng hợp C | 8 phút gắn nhãn riêng; sau đó so/giải thích nhãn với Minh |
 | 16:08–16:36 · CP4 | Bàn giao quyền sửa `lab13.py` cho Minh; soát tích hợp | Kiểm D1, chuẩn bị E1–E2 | Viết code D1, hoàn thiện YAML rồi bàn giao lại code | Soát phạm vi, luật dừng và cập nhật hồ sơ |
-| 16:36–17:00 · CP5 | Tính ba chỉ số E trong code đã nhận lại | Hoàn thiện `chi_so.md` | Kiểm C, D và giả định | Chốt hồ sơ đủ bảy mục để duyệt chéo |
-| 17:00–17:45 | Cùng bảo vệ/chấm theo bằng chứng | Giải thích chi phí/chỉ số | Giải thích lỗi/cỡ mẫu | Ghi phiếu chấm và phản hồi thực tế |
+| 16:36–17:00 · CP5 | Tính ba chỉ số E trong code đã nhận lại | Hoàn thiện `chi_so.md` | Kiểm C, D và giả định | Chốt hồ sơ đủ bảy mục để tự chấm |
+| 17:00–17:45 | Rà soát và tự chấm theo bằng chứng | Giải thích chi phí/chỉ số | Giải thích lỗi/cỡ mẫu | Hoàn thiện phiếu tự chấm và giải trình |
 | 17:45–18:00 | Kiểm, tích hợp, push | Chốt số/báo cáo cá nhân | Chốt C, D/báo cáo cá nhân | Chốt hồ sơ/báo cáo nhóm/cá nhân |
 
 ## Làm độc lập phần nhãn C
@@ -69,7 +69,7 @@ Mốc giờ theo lịch mẫu trong [CHECKPOINTS.md](CHECKPOINTS.md), không ph�
 1. Minh và Dũng chỉ đọc 20 ca trong `docs/Ngay13_Lab13_De_bai_hoc_vien.docx` cùng định nghĩa năm loại trước khi gắn nhãn. Chưa xem bộ nhãn của nhau hoặc mục nhãn tham khảo trong hướng dẫn chi tiết.
 2. Mỗi người tự ghi đủ 20 nhãn trong 8 phút vào bản riêng, rồi khóa/lưu bản gốc trước khi trao đổi.
 3. Sau đó Minh chép nguyên hai bộ nhãn vào `bang_loi.md`, tính đồng thuận; thống nhất ở cột riêng. Không sửa lại hai bộ nhãn độc lập sau khi so.
-4. Nếu đồng thuận dưới 80%, ghi rõ định nghĩa đã chỉnh và quy tắc phân biệt; không điền tỷ lệ hoặc kết quả duyệt chéo khi chưa thực hiện.
+4. Nếu đồng thuận dưới 80%, ghi rõ định nghĩa đã chỉnh và quy tắc phân biệt; không điền tỷ lệ hoặc kết quả đánh giá khi chưa có căn cứ.
 
 ## Lấy bài và gửi phần việc
 
@@ -111,7 +111,7 @@ Chạy/cài Python theo [src/README.md](src/README.md). Mọi lệnh tính toán
 | Bình | [2A202603628_TaCongBinh.md](report/team/2A202603628_TaCongBinh.md) | `4bdce40`: A–B/E1 và kiểm tra; `f3c48a4`: gộp phần nhóm; bản tích hợp có 16 kiểm tra đạt và script kiểm số độc lập |
 | Long | [2A202603670_HoangHaiLong.md](report/team/2A202603670_HoangHaiLong.md) | `19cb5be`: bảng A–B, chỉ số/event/rủi ro; `093ec85`: kiểm D1 bằng công thức z; schema được bổ sung khi tích hợp |
 | Minh | [2A202603616_KhuatTienMinh.md](report/team/2A202603616_KhuatTienMinh.md) | `99aa565`: C/D1/YAML; `60def4d`: nhận main; hai cột nhãn khớp 20/20, độc lập theo khai báo; power/gate/lịch được hoàn thiện chung |
-| Dũng | [2A202603608_NguyenTuanDung.md](report/team/2A202603608_NguyenTuanDung.md) | `fb2023d`: khung launch; `0a72f5f`: nhãn 2; hồ sơ launch và báo cáo tổng hợp từ phần nhóm; phiếu duyệt chéo đang chờ |
+| Dũng | [2A202603608_NguyenTuanDung.md](report/team/2A202603608_NguyenTuanDung.md) | `fb2023d`: khung launch; `0a72f5f`: nhãn 2; hồ sơ launch và báo cáo tổng hợp từ phần nhóm; phiếu tự chấm 98/100, có căn cứ theo từng tiêu chí |
 
 Bảng trên tổng hợp phần bàn giao theo commit. Báo cáo cá nhân ghi chi tiết công việc, kết quả kiểm tra và công cụ đã dùng; các phần bổ sung khi tích hợp được ghi riêng. Mốc giờ phía trên là lịch phân công ban đầu.
 

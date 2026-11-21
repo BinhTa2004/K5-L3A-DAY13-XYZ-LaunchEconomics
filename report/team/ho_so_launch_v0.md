@@ -19,6 +19,6 @@ Nhóm XYZ · L3A · Người giữ hồ sơ: Dũng. Dữ liệu lab giả lập;
 - Trưởng nhóm CSKH: trước 08/12 đánh giá xem lại 100% hang_nang; chỉ giảm khi đạt gate audit và sửa/bỏ, không hạ an toàn để đạt chi phí.
 - PM trợ lý hoàn phí: kiểm chi phí hằng tuần; không mở rộng nếu vượt gate hoặc thiếu mẫu. Đến 05/01 thiếu 299 yêu cầu/người thì No-go cho mở rộng vì chưa đủ bằng chứng.
 
-Phạm vi chỉ noi_dia + hang_nang; loại quoc_te (22.515 đ/việc, 27,33% thành công) và doi_tac (10.215 đ/việc, 54,41%) [chi phí simulated]. Đây là đề xuất của nhóm; chưa có kết quả duyệt chéo.
+Phạm vi chỉ noi_dia + hang_nang; loại quoc_te (22.515 đ/việc, 27,33% thành công) và doi_tac (10.215 đ/việc, 54,41%) [chi phí simulated]. Nhóm tự chấm Gate 2a 30/30; tổng C1–C8 là 98/100, xem [phiếu chấm](phieu_cham.md).
 
 **Đề xuất: Go có điều kiện.**

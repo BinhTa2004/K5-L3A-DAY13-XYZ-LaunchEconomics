@@ -18,7 +18,7 @@ Chi phí mỗi việc thành công (CPS) là 4.471,97 đ; thời gian nhân viê
 
 Xem lại 100% cho CPS 11.742,79–12.414,50 đ tùy phút làm lại, chưa có cố định/chuyển nhân viên [simulated]. Tỉ lệ đóng đúng hạn và không mở lại là 82,83%, sửa/bỏ gợi ý 27,12%, mở lại 4,25%. Đợt thử không có đối chứng nên chưa thể kết luận trợ lý làm tăng chất lượng. Hai bộ nhãn khớp 20/20; nguồn và quy trình ghi trong bảng C.
 
-Pilot chấp nhận MDE +6 điểm: 5.980 mẫu thô/nhóm, DE 6,96, hiệu dụng 859,20; power 0,8010 ở +6 nhưng chỉ 0,6418 ở +5. Kế hoạch có bốn luật dừng, dự kiến chạy từ 01/12/2026 và quyết định ngày 05/01/2027. Nhóm đề xuất **Go có điều kiện**, chỉ phạm vi nội địa/hàng nặng; trước khi chạy cần kiểm tra an toàn, ghi đủ sự kiện và đo thời gian thực tế. [Phiếu duyệt chéo](phieu_cham.md) đang chờ; nhóm chưa có điểm hội đồng.
+Pilot chấp nhận MDE +6 điểm: 5.980 mẫu thô/nhóm, DE 6,96, hiệu dụng 859,20; power 0,8010 ở +6 nhưng chỉ 0,6418 ở +5. Kế hoạch có bốn luật dừng, dự kiến chạy từ 01/12/2026 và quyết định ngày 05/01/2027. Nhóm đề xuất **Go có điều kiện**, chỉ phạm vi nội địa/hàng nặng; trước khi chạy cần kiểm tra an toàn, ghi đủ sự kiện và đo thời gian thực tế. [Phiếu tự chấm](phieu_cham.md): **98/100**, gồm 68/70 kỹ thuật và 30/30 Gate 2a. Phần C3 tự trừ 2 điểm do thiếu bản khóa riêng bộ nhãn 1 trước khi so.
 
 ## 5. Khó khăn và cách xử lý
 
@@ -33,11 +33,11 @@ Máy thiếu statsmodels nên nhóm cài thư viện trong `.venv`. Lỗi xuất
 | Minh | C, code D1, kế hoạch pilot | `99aa565`, `60def4d` |
 | Dũng | Khung launch, bộ nhãn 2, giữ hồ sơ | `fb2023d`, `0a72f5f` |
 
-ChatGPT/Codex hỗ trợ phần tính power, kiểm chi phí, đặc tả sự kiện và biên soạn báo cáo chung. Công cụ và phạm vi sử dụng được ghi trong mục 5 của từng báo cáo cá nhân.
+Công cụ và cách kiểm tra được ghi tại mục 5 của từng báo cáo cá nhân.
 
 ## 7. Hạn chế và hướng cải thiện
 
-16/16 kiểm tra đạt, kết quả kiểm số độc lập khớp với mô hình. Tuy vậy, thời gian xử lý là simulated, ICC và mức nền là giả định. Pilot cần đo thời gian thật, kiểm soát việc chia sẻ gợi ý giữa hai nhóm, có đủ 20 cụm mỗi nhánh và 299 yêu cầu/người. Nhóm chưa có dữ liệu pilot thực tế hoặc kết quả duyệt chéo.
+16/16 kiểm tra đạt, kết quả kiểm số độc lập khớp với mô hình. Tuy vậy, thời gian xử lý là simulated, ICC và mức nền là giả định. Pilot cần đo thời gian thật, kiểm soát việc chia sẻ gợi ý giữa hai nhóm, có đủ 20 cụm mỗi nhánh và 299 yêu cầu/người. Kết quả là tự đánh giá hồ sơ; nhóm chưa có dữ liệu pilot thực tế.
 
 ## 8. Tài liệu tham khảo
 

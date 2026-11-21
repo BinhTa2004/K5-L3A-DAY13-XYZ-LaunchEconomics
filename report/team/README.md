@@ -1,6 +1,6 @@
 # Báo cáo nhóm XYZ
 
-Phân công chi tiết, mốc bàn giao và cách gửi pull request: [TEAM.md](../../TEAM.md). Các hồ sơ đã tổng hợp từ phần nhóm; riêng phiếu duyệt chéo đang chờ.
+Phân công chi tiết, mốc bàn giao và cách gửi pull request: [TEAM.md](../../TEAM.md). Các hồ sơ đã tổng hợp từ phần nhóm; phiếu tự chấm đã hoàn thành với 98/100.
 
 | File | Nhiệm vụ | Ai điền | Ghi chú |
 |---|---|---|---|
@@ -9,7 +9,7 @@ Phân công chi tiết, mốc bàn giao và cách gửi pull request: [TEAM.md](
 | `pilot_plan.yaml` | D | Minh viết, Long và Dũng kiểm | D1 trong code do Minh viết sau khi nhận A–B; đủ trường, đọc được bằng `yaml.safe_load` |
 | `chi_so.md` | E1, E2 | Long viết, Bình và Dũng kiểm | Ba chỉ số tính thử, hai chỉ số bổ sung, ít nhất sáu event và hai rủi ro |
 | `ho_so_launch_v0.md` | E3 | Dũng viết, ba người soát phần mình | Một trang, bảy mục, dòng cuối là đề xuất |
-| `phieu_cham.md` | Duyệt chéo | Dũng ghi, Minh kiểm | Ghi theo hồ sơ nhóm khác và việc chấm thực tế |
+| `phieu_cham.md` | Tự chấm | Hồ sơ nhóm | 68/70 kỹ thuật +30/30 Gate 2a, có lý do và giải trình |
 | `group_report.md` | | Dũng viết, Bình kiểm | Báo cáo nhóm ngắn, dẫn đúng bằng chứng |
 | `MSSV_HoTen.md` | | Từng thành viên | File mẫu. Mỗi người copy thành file riêng |
 

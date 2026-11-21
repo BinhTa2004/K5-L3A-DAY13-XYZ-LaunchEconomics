@@ -4,7 +4,7 @@
 
 - Họ tên: Tạ Công Bình; MSSV: 2A202603628; GitHub: BinhTa2004.
 - Vai: người viết code A–B/E1, trưởng nhóm và tích hợp bài.
-- Trạng thái: code chạy đủ A–B–D1–E1, hồ sơ chung được tích hợp; chưa duyệt chéo.
+- Trạng thái: code chạy đủ A–B–D1–E1, hồ sơ chung đã tích hợp và tự chấm 98/100.
 
 ## 2. Phần việc phụ trách
 
@@ -41,10 +41,10 @@ Viết A1–A4/B1–B4 và phép tính ba chỉ số E1, bàn giao cho Long ki�
 
 ## 5. Công cụ AI và cách kiểm tra
 
-ChatGPT/Codex hỗ trợ đọc đề, viết code và kiểm tra, chạy lệnh, tích hợp bài và soạn báo cáo. Kết quả được kiểm bằng ví dụ tính tay, công thức z, Decimal và dữ liệu CSV theo công thức của lab. Chương trình không gọi API hoặc model thật.
+ChatGPT/Codex hỗ trợ code, kiểm tra, tích hợp và báo cáo. Kiểm lại bằng ví dụ tính tay, công thức z và Decimal từ CSV; chương trình không gọi model thật.
 
 ## 6. Tự đánh giá
 
 Code chạy đủ các phần và có thể kiểm lại từ CSV. Thời gian nhân viên chiếm 92,46% tổng chi phí [simulated], nên việc giảm xem lại và làm lại có ảnh hưởng lớn hơn giảm giá token. Trước pilot cần kiểm chống hoàn trùng, bật log, đo thời gian thật và thống nhất MDE.
 
-Hạn chế chính là dữ liệu thời gian còn giả lập và chưa có đối chứng thực tế. Nhóm chưa duyệt chéo nên phần đánh giá của hội đồng chưa có kết quả.
+Hạn chế chính là dữ liệu thời gian còn giả lập và chưa có đối chứng thực tế. Nhóm đã tự chấm 98/100; C3 trừ 2 điểm do bằng chứng khóa bộ nhãn 1 chưa đầy đủ.

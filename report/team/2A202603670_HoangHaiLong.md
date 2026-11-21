@@ -27,7 +27,7 @@ Bản tích hợp có 14 sự kiện, bổ sung thời điểm và khóa để �
 
 ## 5. Công cụ AI và kiểm tra
 
-Claude Code (Claude Opus) hỗ trợ đọc đề, viết script kiểm số và soạn phần A–B/E. ChatGPT/Codex hỗ trợ hoàn thiện đặc tả sự kiện, báo cáo và script Decimal khi tích hợp. Số liệu được đối chiếu từ CSV, kết quả chương trình và công thức trong tài liệu lab.
+Claude Code hỗ trợ kiểm số và phần A–B/E; ChatGPT/Codex hỗ trợ đặc tả sự kiện, script Decimal và báo cáo khi tích hợp. Số liệu đối chiếu từ CSV và công thức lab.
 
 ## 6. Tự đánh giá
 

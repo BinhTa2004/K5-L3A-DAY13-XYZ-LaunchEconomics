@@ -28,7 +28,7 @@ Lịch giả định: khởi chạy 01/12/2026, đủ 20 người can thiệp t�
 
 ## 5. Công cụ AI và kiểm tra
 
-Antigravity/Gemini hỗ trợ đọc đề DOCX, cài môi trường, viết D1 và soát YAML. ChatGPT/Codex hỗ trợ tính power, chỉnh lịch và luật dừng, tổng hợp báo cáo khi tích hợp. Kết quả được kiểm bằng công thức z, statsmodels, csv/Decimal, `yaml.safe_load` và bộ kiểm tra.
+Antigravity/Gemini hỗ trợ D1 và YAML; ChatGPT/Codex hỗ trợ power, lịch, luật dừng và báo cáo. Kiểm lại bằng công thức z, statsmodels, csv/Decimal và `yaml.safe_load`.
 
 ## 6. Tự đánh giá
 

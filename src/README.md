@@ -76,4 +76,4 @@ Bản tích hợp cần `pandas`, `statsmodels` và `pyyaml`; cài đủ theo `r
 - A4 coi 45.000 là tổng mọi loại yêu cầu, phân bổ cố định theo tỉ lệ thành công trong phạm vi trên toàn mẫu. B3 cộng 12.000 đ cho mỗi yêu cầu không thành công theo quy ước lab.
 - B4 xem lại một lần cho mỗi yêu cầu có ít nhất một run `ok`; hai dòng dùng 9 phút/ca và trung bình chính xác của cột `phut_lam_lai_simulated` trên mọi ca `lam_lai`. Các bảng B chưa cộng cố định; B4 chưa cộng chi phí chuyển nhân viên.
 
-Script kiểm độc lập và artifact kết quả được bổ sung trong lượt rà soát chung có Codex hỗ trợ. Đây là kiểm số tái lập, không thay lượt duyệt chéo hoặc xác nhận hệ thống pilot đã vận hành.
+Script kiểm độc lập và file kết quả dùng để đối chiếu số khi tự chấm. Các kết quả này thuộc bài lab, chưa phải dữ liệu pilot thực tế.

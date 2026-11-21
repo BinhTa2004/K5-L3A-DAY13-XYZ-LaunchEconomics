@@ -2,6 +2,8 @@
 
 AI20K K5, ngày 13 (Launch & Economics), buổi chiều. Mỗi nhóm dựng một bộ **hồ sơ launch v0** cho trợ lý hoàn phí của công ty giả định **LogiX-VN**, rồi bảo vệ hồ sơ trước một nhóm khác đóng vai hội đồng **Gate 2a**. Toàn bộ dữ liệu là **giả lập**. Lab không cần khoá API và không cần mạng trong lúc làm.
 
+**Thành viên nhóm XYZ:** Bình, Long, Minh, Dũng xem [TEAM.md](TEAM.md) trước khi làm: MSSV, phân công theo file, điều kiện bàn giao, thứ tự sửa code và cách tạo nhánh/pull request. Báo cáo cá nhân đã tạo sẵn trong `report/team/`.
+
 **Loại bài:** Nhóm 4 người · **Thời lượng:** 4 giờ tại lớp (14:00–18:00) · **Deadline:** lớp sáng và lớp chiều đều nộp trước 23h59 GMT+7 ngày lab ([SUBMISSION.md](SUBMISSION.md#deadline-gmt7)). Hồ sơ phải sẵn sàng lúc 17:00 để duyệt chéo tại lớp.
 
 ## Mục tiêu học tập

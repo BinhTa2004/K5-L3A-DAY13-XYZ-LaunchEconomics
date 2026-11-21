@@ -287,6 +287,68 @@ def in_phan_b(runs, reqs):
     print('B4 chưa có cố định hay chi phí chuyển nhân viên; cần đo thời gian và khả năng giảm xem lại trong pilot.')
 
 
+def tinh_co_mau_d1(reqs=None, baseline=0.70, mde=0.05, alpha=0.05, power=0.80, icc=0.02,
+                   m_nhan_vien=75, cum_nhan_vien=20, cum_depot=6, n_muc_tieu_6_diem=859):
+    """D1: tính cỡ mẫu theo ba cách chia (yêu cầu, nhân viên, depot) và mức chênh 6 điểm."""
+    from statsmodels.stats.power import NormalIndPower
+    from statsmodels.stats.proportion import proportion_effectsize
+
+    p2 = baseline + mde
+    h = proportion_effectsize(p2, baseline)
+    n_yeu_cau_raw = float(NormalIndPower().solve_power(effect_size=h, alpha=alpha, power=power, ratio=1.0))
+    n_yeu_cau = math.ceil(n_yeu_cau_raw)
+
+    deff_b = 1 + (m_nhan_vien - 1) * icc
+    n_nhom_b = math.ceil(n_yeu_cau * deff_b)
+    nhan_vien_moi_nhom_b = math.ceil(n_nhom_b / m_nhan_vien)
+
+    max_neff_nhan_vien = cum_nhan_vien / icc
+    max_neff_depot = cum_depot / icc
+
+    m_min_e = math.ceil(n_muc_tieu_6_diem * (1 - icc) / (cum_nhan_vien - n_muc_tieu_6_diem * icc))
+    deff_e = 1 + (m_min_e - 1) * icc
+    n_nhom_e = cum_nhan_vien * m_min_e
+    neff_e = n_nhom_e / deff_e
+
+    kq = dict(
+        n_yeu_cau_raw=n_yeu_cau_raw, n_yeu_cau=n_yeu_cau,
+        deff_b=deff_b, n_nhom_b=n_nhom_b, nhan_vien_moi_nhom_b=nhan_vien_moi_nhom_b,
+        tong_nhan_vien_b=2 * nhan_vien_moi_nhom_b,
+        max_neff_nhan_vien=max_neff_nhan_vien, max_neff_depot=max_neff_depot,
+        m_min_e=m_min_e, deff_e=deff_e, n_nhom_e=n_nhom_e, neff_e=neff_e,
+    )
+    if reqs is not None:
+        pham_vi = reqs.loc[reqs['loai'].isin(PHAM_VI_PILOT)]
+        kq.update(
+            mo_lai_toan_mau=float(reqs['mo_lai_trong_7_ngay'].mean()),
+            mo_lai_pham_vi=float(pham_vi['mo_lai_trong_7_ngay'].mean()),
+            mo_lai_noi_dia=float(reqs.loc[reqs['loai'].eq('noi_dia'), 'mo_lai_trong_7_ngay'].mean()),
+            mo_lai_hang_nang=float(reqs.loc[reqs['loai'].eq('hang_nang'), 'mo_lai_trong_7_ngay'].mean()),
+        )
+    return kq
+
+
+def in_phan_d(reqs):
+    kq = tinh_co_mau_d1(reqs)
+    _in_bang('D1 · Cỡ mẫu pilot (baseline 0,70; MDE +5 điểm; alpha 0,05; power 0,80; ICC 0,02)',
+             ['Câu', 'Cách chia / bài toán', 'Kết quả'], [
+                 ['a', 'Chia theo từng yêu cầu', f"{_so(kq['n_yeu_cau'])} yêu cầu/nhóm (raw {_so(kq['n_yeu_cau_raw'], 2)})"],
+                 ['b', 'Chia theo nhân viên, m = 75',
+                  f"DEFF = {_so(kq['deff_b'], 2)}; {_so(kq['n_nhom_b'])}/nhóm; "
+                  f"{kq['nhan_vien_moi_nhom_b']} NV/nhóm (tổng {kq['tong_nhan_vien_b']} > 40 -> không đủ)"],
+                 ['c', '20 nhân viên/nhóm, m tùy ý',
+                  f"n_eff tối đa < {_so(kq['max_neff_nhan_vien'])}/nhóm (< {_so(kq['n_yeu_cau'])} -> không đạt câu a)"],
+                 ['d', '6 depot/nhóm, m tùy ý',
+                  f"n_eff tối đa < {_so(kq['max_neff_depot'])}/nhóm (< {_so(kq['n_yeu_cau'])} và < 20 cụm/nhóm)"],
+                 ['e', 'MDE +6 điểm (cần 859/nhóm), 20 NV/nhóm',
+                  f"m >= {kq['m_min_e']} YC/NV (DEFF = {_so(kq['deff_e'], 2)}; "
+                  f"{_so(kq['n_nhom_e'])}/nhóm; n_eff = {_so(kq['neff_e'], 1)})"],
+             ])
+    print(f"Tỉ lệ mo_lai_trong_7_ngay chạy thử: toàn mẫu {_phan_tram(kq['mo_lai_toan_mau'])}; "
+          f"phạm vi noi_dia + hang_nang {_phan_tram(kq['mo_lai_pham_vi'])} "
+          f"(noi_dia {_phan_tram(kq['mo_lai_noi_dia'])}, hang_nang {_phan_tram(kq['mo_lai_hang_nang'])}).")
+
+
 def in_chi_so(reqs):
     chi_so = tinh_chi_so(reqs)
     ten = {'chinh': 'Đóng trong 24h, không mở lại 7 ngày',
@@ -303,7 +365,7 @@ def main():
     kiem_tra_dap_an_biet_truoc()
     in_phan_a(runs, reqs)
     in_phan_b(runs, reqs)
-    # TODO CP4 · Minh bổ sung hàm và lời gọi tính cỡ mẫu D1 tại đây.
+    in_phan_d(reqs)
     in_chi_so(reqs)
 
 

@@ -1,56 +1,35 @@
 # Báo cáo cá nhân — Khuất Tiến Minh — 2A202603616
 
-Trạng thái: đã hoàn thành toàn bộ phần việc của Minh gồm Nhiệm vụ C (`report/team/bang_loi.md` với đồng thuận 20/20 = 100% cùng bộ nhãn độc lập của Dũng ở `0a72f5f`) và Nhiệm vụ D (`src/lab13.py` tích hợp `tinh_co_mau_d1` / `in_phan_d` chạy trọn bộ A–B–D1–E1 và `report/team/pilot_plan.yaml`). Phân công và bàn giao: [TEAM.md](../../TEAM.md).
-
 ## 1. Thông tin thành viên
 
-- Họ tên: Khuất Tiến Minh
-- MSSV: 2A202603616
-- GitHub: Minhktm02
-- Vai trong nhóm: Người gắn nhãn 1; bảng lỗi C; người viết code D1 sau giải lao và kế hoạch pilot D.
+- Họ tên: Khuất Tiến Minh; MSSV: 2A202603616; GitHub: Minhktm02.
+- Vai: người gắn nhãn 1; bảng lỗi C, code D1 sau giải lao và kế hoạch pilot D.
+- Trạng thái: đã bàn giao C/D1/YAML (`99aa565`), nhận main (`60def4d`), Long kiểm ở `093ec85`; phần lịch/gate/power được hoàn thiện khi tích hợp.
 
-## 2. Phần việc được giao
+## 2. Phần việc phụ trách
 
-- Gắn độc lập 20 ca trước khi xem nhãn Dũng hoặc đáp án tham khảo; giữ nguyên bộ nhãn gốc.
-- Sau khi cả hai khóa nhãn, tổng hợp `bang_loi.md`: hai bộ nhãn, đồng thuận, quy tắc và năm cách khắc phục.
-- Nhận code A–B đã tích hợp từ Bình, viết D1 vào `src/lab13.py`; hoàn thiện `pilot_plan.yaml`, giải thích đánh đổi và kiểm YAML; bàn giao code lại cho Bình.
+Gắn 20 ca trước khi so với Dũng, giữ nhãn gốc; tính đồng thuận và khắc phục đủ năm loại; thêm D1 mà giữ nguyên A–B/E1 của Bình; hoàn thiện thiết kế pilot, cỡ mẫu và luật dừng.
 
-## 3. Đóng góp cụ thể đã thực hiện
+## 3. Đóng góp cụ thể
 
-- **Nhánh làm việc:** tạo nhánh `day13/minh-errors-pilot` từ `main` đúng quy ước trong `TEAM.md`.
-- **Nhiệm vụ C (`report/team/bang_loi.md`):**
-  - Tự làm: đọc 20 ca lỗi từ `docs/Ngay13_Lab13_De_bai_hoc_vien.docx` và 5 định nghĩa Google PAIR (không xem nhãn tham khảo), gắn độc lập 20 nhãn cho cột Người gắn nhãn 1 (4 Do người dùng, 5 Hệ thống, 4 Ngữ cảnh, 4 Giới hạn hệ thống, 3 Ngầm) và khóa bản gốc.
-  - Phối hợp: merge bộ nhãn độc lập của Nguyễn Tuấn Dũng (`report/team/nhan_dung_doc_lap.md`, commit `0a72f5f`), chép nguyên bộ nhãn vào cột Người gắn nhãn 2, tính đồng thuận đạt **20/20 = 100%** (không sửa lại nhãn gốc), bổ sung quy tắc phân biệt cho các ca ranh giới dễ nhầm (Ca 13, 9, 7–8).
-  - Tự làm: hoàn thiện bảng khắc phục 5 ca đại diện đủ 5 loại (Ca 1, 20, 18, 13, 5) với event/ngưỡng/tần suất đo được và vai trò phụ trách cụ thể.
-- **Nhiệm vụ D (`src/lab13.py` và `report/team/pilot_plan.yaml`):**
-  - Tự làm: sau khi merge `origin/main` (commit `4bdce40` của Bình), bổ sung hàm `tinh_co_mau_d1(reqs)` và `in_phan_d(reqs)` vào `src/lab13.py` dùng `statsmodels` (`proportion_effectsize`, `NormalIndPower`) tính 5 câu D1 và tỉ lệ `mo_lai_trong_7_ngay`, chạy trọn bộ `python lab13.py` cùng test của Bình (`test_lab13.py`) đều ĐẠT.
-  - Tự làm: hoàn thiện `report/team/pilot_plan.yaml` gồm chú thích D1–D2, giải thích đánh đổi chọn `unit: staff` (20 nhân viên/nhóm, nới MDE lên +6 điểm, m ≥ 299, DEFF = 6,96, `n_per_arm = 5980`), 3 luật dừng đủ 4 vế `NẾU – TRONG – THÌ – KHÔNG THÌ`, rollback và liệt kê đầy đủ đầu vào `simulated`.
-  - Phối hợp: sẵn sàng để Long kiểm độc lập số D1 và Dũng đối chiếu với `ho_so_launch_v0.md`.
+Theo báo cáo bàn giao: Minh đọc đề và gắn bộ 1 trước khi xem tham khảo, dùng bộ Dũng `0a72f5f` để so, đạt 20/20; hoàn thiện năm cách khắc phục và quy tắc phân biệt ca 13/9/7–8. Repo lưu bảng hai bộ ở `99aa565`; thời điểm/độc lập là khai báo thành viên, chưa có file khóa riêng bộ 1 trong repo để xác nhận lại bằng lịch sử trước khi so.
 
-## 4. Bằng chứng
+Minh thêm `tinh_co_mau_d1`/`in_phan_d` dùng statsmodels, tính cả tỉ lệ mở lại toàn mẫu/phạm vi và hoàn thiện YAML chia staff 20+20, MDE +6, DE 6,96, 5.980 mẫu thô/nhóm.
 
-- **File đã sửa trên nhánh `day13/minh-errors-pilot` (đã merge `origin/main` tới `4bdce40`):**
-  - `report/team/bang_loi.md`
-  - `src/lab13.py` (bổ sung `tinh_co_mau_d1` và `in_phan_d` tại mục CP4, giữ nguyên toàn bộ A–B và E1 của Bình)
-  - `report/team/pilot_plan.yaml`
-  - `report/team/2A202603616_KhuatTienMinh.md`
-- **Lệnh đã chạy và kết quả kiểm tra (trong `src/` dùng `.venv`):**
-  - Chạy trọn bộ `src/lab13.py`: `.\.venv\Scripts\python.exe lab13.py` -> in `Ba phép thử đáp án biết trước: ĐẠT`, đủ bảng A1–A4, B1–B4, D1 và E1.
-  - Chạy bộ test `src/test_lab13.py`: `.\.venv\Scripts\python.exe -m unittest test_lab13.py -v` -> toàn bộ test ĐẠT.
-  - Kết quả D1: a) `1.250` yêu cầu/nhóm (`raw=1.249,58`); b) `DEFF=2,48`, `3.100` yêu cầu/nhóm, `42` nhân viên/nhóm (tổng 84 > 40 -> không đủ); c) `n_eff < 1.000`/nhóm (< 1.250); d) `n_eff < 300`/nhóm; e) `m >= 299` yêu cầu/nhân viên (`DEFF=6,96`, `5.980` yêu cầu/nhóm, `n_eff=859,2`).
-  - Tỉ lệ `mo_lai_trong_7_ngay` từ `logix_requests.csv`: toàn mẫu `4,25%` (51/1.200); phạm vi `noi_dia + hang_nang` là `3,97%` (`noi_dia` `3,16%`, `hang_nang` `8,23%`).
-  - Kiểm tra YAML đọc được: `.\.venv\Scripts\python.exe -c "import yaml; d = yaml.safe_load(open('../report/team/pilot_plan.yaml', encoding='utf-8')); print(list(d['pilot'].keys()))"` -> ĐẠT.
-  - Kiểm tra không còn dấu `?` ngoài chú thích và tuân thủ quy tắc thuật ngữ Gate 2a (chỉ dùng phạm vi pilot) trong `bang_loi.md`, `pilot_plan.yaml` -> ĐẠT.
-  - Lưu ý nhãn `simulated`: các số chi phí xem lại/làm lại dùng để đối chiếu phạm vi `noi_dia + hang_nang` lấy từ hai cột `phut_xem_lai_simulated` và `phut_lam_lai_simulated` đã được ghi rõ nhãn `simulated` trong `pilot_plan.yaml`.
+Lần tích hợp cuối có Codex bổ sung power ở tác động +5/+6, phân biệt mẫu thô/hiệu dụng, lịch đề xuất có đủ 7 ngày theo dõi, gate hoàn trùng tức thời và metric/event thống nhất. Không quy các bổ sung này thành công việc Minh đã tự làm ở commit ban đầu.
 
-## 5. Công cụ AI đã dùng
+## 4. Bằng chứng và kết quả
 
-- Khung phân công và mẫu báo cáo ban đầu được chuẩn bị với ChatGPT/Codex (theo ghi chú ở `TEAM.md`).
-- Trong phần bài làm của Minh: dùng trợ lý AI (Antigravity / Gemini) để đọc đề bài `docs/Ngay13_Lab13_De_bai_hoc_vien.docx`, cài môi trường `.venv`, viết hàm tính cỡ mẫu D1 bằng `statsmodels`, kiểm tra cú pháp YAML và soát checklist nộp bài.
-- Cách tự kiểm tra: đối chiếu kết quả `statsmodels` với công thức giải tích trong `docs/du_lieu_va_cong_thuc.md` (`1.250` vs `1.251`, lệch < 0,1%), chạy `yaml.safe_load`, kiểm tra regex không còn dấu `?` ngoài chú thích và không dùng từ cấm vượt phạm vi pilot, giữ nguyên bộ nhãn độc lập không xem đáp án tham khảo.
+[Bảng C](bang_loi.md), [pilot](pilot_plan.yaml), [code](../../src/lab13.py), [output](ket_qua_tinh_toan.txt), [kiểm độc lập](kiem_so_doc_lap.json). Commit gốc `99aa565`, tích hợp `60def4d`; giữ nguyên [nhãn Dũng](nhan_dung_doc_lap.md).
 
-## 6. Tự đánh giá
+D1: 1.250 yêu cầu/nhóm; DE 2,48, 3.100 yêu cầu/nhóm và 42 người/nhóm (tổng 84>40); trần 20 staff/nhóm <1.000, 6 depot/nhóm <300. Với +6 điểm: 20×299=5.980, DE 6,96, n_eff=859,1954; power +6=0,8010, +5=0,6418. Công thức z cho 1.251/3.103, sai khác <0,25%.
 
-- **Đã đạt:** hoàn thành và kiểm chứng đầy đủ toàn bộ phần C (`bang_loi.md` đạt đồng thuận 20/20 = 100% giữa hai bộ nhãn độc lập, đủ 5 loại lỗi và cách khắc phục đo được) và phần D (`src/lab13.py` chạy thông suốt A–B–D1–E1 cùng 12/12 test `test_lab13.py`, `pilot_plan.yaml` đọc được và đạt checklist).
-- **Hạn chế:** chưa cần chỉnh sửa thêm ở phần Minh; sẵn sàng để Long kiểm độc lập số D1, Dũng cập nhật mục 5–6 vào `ho_so_launch_v0.md` và Bình tích hợp PR vào `main`.
-- **Cải thiện:** khi bảo vệ trước hội đồng Gate 2a cần chuẩn bị giải thích rõ hai điểm trọng tâm: (1) lý do gắn nhãn theo nguyên nhân gốc cho Ca 13/9/7–8 và (2) đánh đổi nới MDE từ +5 lên +6 điểm khi chọn `unit: staff` (20 cụm/nhóm) để tránh spillover.
+Lịch giả định: khởi chạy 01/12/2026, đủ 20 người can thiệp từ 15/12, thu mẫu 15–28/12, theo dõi đến 04/01/2027, quyết định 05/01. Thiếu 299 yêu cầu ở bất kỳ người nào thì không mở rộng vì thiếu mẫu, không đổi MDE sau khi xem dữ liệu. YAML có bốn luật dừng; 16 kiểm tra tích hợp đạt.
+
+## 5. Công cụ AI và kiểm tra
+
+Theo khai báo ban đầu: Antigravity/Gemini hỗ trợ đọc DOCX, môi trường, code D1, YAML/checklist. Codex hỗ trợ lần rà soát chung. Kiểm bằng công thức z, csv/Decimal, statsmodels, `yaml.safe_load` và bộ kiểm tra; nhãn được giữ nguyên, không tạo nhãn độc lập mới sau khi đã so.
+
+## 6. Đánh giá từ hồ sơ và việc tiếp theo
+
+C/D đã có sản phẩm và số tái lập; cần giải thích đánh đổi MDE, ảnh hưởng spillover và vì sao n_eff không thể vượt trần c/ICC. Đồng thuận 100% không tự chứng minh tính độc lập; thành viên chịu trách nhiệm về quy trình gắn nhãn đã khai báo. Trước pilot cần roster đủ 40 người ở 12 depot; không dùng mẫu 20 người/6 depot để tự dựng roster. Đọc lại các gate/lịch mới, phối hợp duyệt chéo và tự nộp LMS.

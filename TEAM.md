@@ -6,8 +6,8 @@
 - Lớp: L3A.
 - Trưởng nhóm, tích hợp và nộp repo: Tạ Công Bình.
 - Repo: https://github.com/BinhTa2004/K5-L3A-DAY13-XYZ-LaunchEconomics
-- Nhánh tích hợp/nộp: `main`. Commit chốt bài sẽ bổ sung sau khi hoàn thành.
-- Trạng thái: Bình đã triển khai code A–B và phép tính ba chỉ số E1, có 12 bài kiểm tra tự động đạt; chờ Long kiểm độc lập và Minh bổ sung D1. Hồ sơ của các thành viên tiếp tục hoàn thiện theo phân công.
+- Nhánh tích hợp/nộp: `main`. Mốc code Bình `4bdce40`, code Minh `99aa565`, gộp nhóm `f3c48a4`; lấy hash gói cuối bằng `git rev-parse HEAD` sau commit hoàn thiện.
+- Trạng thái: đã tích hợp A–B–D1–E1, bảng C, chi phí/chỉ số và báo cáo; 16 kiểm tra tự động đạt, có kiểm số csv/Decimal. Duyệt chéo đang chờ theo xác nhận của Bình; chưa có điểm hội đồng hay xác nhận nộp LMS.
 - Họ tên, MSSV và GitHub đối chiếu từ `TEAM.md` cùng báo cáo cá nhân trong repo Day 08 `K5-L3A-DAY08-FPT-FromWorkflowsToAgents` của nhóm.
 
 ## Thành viên và phần việc
@@ -108,11 +108,11 @@ Chạy/cài Python theo [src/README.md](src/README.md). Mọi lệnh tính toán
 
 | Thành viên | Báo cáo cá nhân | Commit/kết quả thực tế |
 | --- | --- | --- |
-| Bình | [2A202603628_TaCongBinh.md](report/team/2A202603628_TaCongBinh.md) | Code A1–A4, B1–B4, ba chỉ số E1 trong `src/lab13.py`; `python -m unittest -v test_lab13`: 12/12 đạt; có ChatGPT/Codex hỗ trợ triển khai và kiểm tra; chờ Long soát độc lập |
-| Long | [2A202603670_HoangHaiLong.md](report/team/2A202603670_HoangHaiLong.md) | Chưa ghi nhận; bổ sung sau khi làm |
-| Minh | [2A202603616_KhuatTienMinh.md](report/team/2A202603616_KhuatTienMinh.md) | Chưa ghi nhận; bổ sung sau khi làm |
-| Dũng | [2A202603608_NguyenTuanDung.md](report/team/2A202603608_NguyenTuanDung.md) | Chưa ghi nhận; bổ sung sau khi làm |
+| Bình | [2A202603628_TaCongBinh.md](report/team/2A202603628_TaCongBinh.md) | `4bdce40`: A–B/E1 và kiểm tra; `f3c48a4`: gộp phần nhóm; hoàn thiện chung với Codex, 16 kiểm tra và script kiểm độc lập đạt |
+| Long | [2A202603670_HoangHaiLong.md](report/team/2A202603670_HoangHaiLong.md) | `19cb5be`: bảng A–B, chỉ số/event/rủi ro; `093ec85`: kiểm D1 bằng công thức z; schema được bổ sung khi tích hợp |
+| Minh | [2A202603616_KhuatTienMinh.md](report/team/2A202603616_KhuatTienMinh.md) | `99aa565`: C/D1/YAML; `60def4d`: nhận main; hai cột nhãn khớp 20/20, độc lập theo khai báo; power/gate/lịch được hoàn thiện chung |
+| Dũng | [2A202603608_NguyenTuanDung.md](report/team/2A202603608_NguyenTuanDung.md) | `fb2023d`: khung launch; `0a72f5f`: nhãn 2; Codex tổng hợp launch/báo cáo từ phần nhóm; phiếu duyệt chéo đang chờ |
 
-Bốn báo cáo đã tạo sẵn thông tin và phần việc dự kiến. Mỗi người tự bổ sung đóng góp, công cụ AI, cách kiểm tra và tự đánh giá sau khi thực hiện. Việc chuẩn bị phân công có ChatGPT/Codex hỗ trợ đọc repo Day 08 và yêu cầu Lab 13.
+Bốn báo cáo đã cập nhật từ commit và kết quả kiểm tra. Phân công/mốc giờ phía trên là kế hoạch ban đầu; bảng bằng chứng này thể hiện trạng thái đã tích hợp. Từng người đọc lại, giải thích phần mình và xác nhận khai báo; không coi tổng hợp bằng Codex là việc tất cả đã tự làm trước đó.
 
-Phần tính E1 đã được Bình bổ sung sớm cùng A–B để Long có thể kiểm ngay. Minh giữ lời gọi `in_chi_so(reqs)` khi thêm D1 vào vị trí `TODO CP4` trong `main()`. Lệnh tái lập và ghi chú mô hình: [src/README.md](src/README.md).
+Code đã chạy đủ A–B–D1–E1. Lệnh tái lập: [src/README.md](src/README.md). Hồ sơ cuối: [báo cáo nhóm](report/team/group_report.md), [launch](report/team/ho_so_launch_v0.md), [kết quả tính](report/team/ket_qua_tinh_toan.txt), [rà soát từng người](report/team/kiem_tra_hoan_thien.md). Các ngày pilot là lịch đề xuất giả định; không phải lịch vận hành đã được duyệt.

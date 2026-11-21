@@ -1,21 +1,24 @@
-# Hồ sơ launch v0 · Trợ lý hoàn phí LogiX-VN · Gate 2a
+# Hồ sơ launch v0 · LogiX-VN · Gate 2a
 
-Một trang. Cột trạng thái chỉ nhận: **Xong, có bằng chứng · Chưa · Giả lập**. Mục nào dựa trên cột `_simulated` ghi Giả lập. Người phụ trách là một vai trò, không ghi "cả đội". Gate 2a chỉ duyệt kế hoạch pilot: không viết như thể trợ lý đã được duyệt chạy chính thức (xem quy tắc 5 trong `README.md`).
-
-Nhóm: XYZ · Lớp: L3A
+Nhóm XYZ · L3A · Người giữ hồ sơ: Dũng. Dữ liệu lab giả lập; nguồn: [chi phí](bang_chi_phi.md), [chỉ số](chi_so.md), [lỗi](bang_loi.md), [pilot](pilot_plan.yaml).
 
 | Mục | Con số chính | Trạng thái | Người phụ trách |
 | --- | --- | --- | --- |
-| 1 · Chi phí mỗi việc thành công | Chưa có số. Nguồn: A1–A4 (`bang_chi_phi.md`). Ghi rõ đã cộng chi phí cố định hay chưa, ở khối lượng nào. | Chưa | Người kiểm số (Long) |
-| 2 · Ba yếu tố nhạy nhất | Chưa có số. Nguồn: B1–B4 (độ nhạy, chạy lại, xem lại 100%). | Chưa | Người viết code (Bình) |
-| 3 · So với nhân viên tự làm | Chưa có số. Nguồn: A–B, phút xử lý dạng `simulated`. | Chưa | Người kiểm số (Long) |
-| 4 · Chỉ số chính, chỉ số dùng, chỉ số an toàn | Chưa có số. Nguồn: E1 (`chi_so.md`), ba chỉ số có kết quả, thêm hai chỉ số, ít nhất sáu event có `trace_id`. | Chưa | Người kiểm số (Long) |
-| 5 · Bảng lỗi và cách khắc phục | Chưa có số. Nguồn: C (`bang_loi.md`), đồng thuận hai bộ nhãn, năm loại lỗi. | Chưa | Người gắn nhãn 1 (Minh) |
-| 6 · Pilot plan | Chưa có số. Nguồn: D1–D3 (`pilot_plan.yaml`), cỡ mẫu, ít nhất ba luật dừng bốn vế. | Chưa | Người gắn nhãn 1 (Minh) |
-| 7 · Rủi ro kinh tế | Chưa có số. Nguồn: E2, ít nhất hai rủi ro có số. | Chưa | Người kiểm số (Long) |
+| 1 · Chi phí mỗi việc thành công | Toàn mẫu 4.471,97 đ; phạm vi noi_dia + hang_nang 3.413,90 đ chưa cố định, 4.599,09 đ có cố định ở 45.000 yêu cầu/tháng [simulated] | Giả lập | PM trợ lý hoàn phí |
+| 2 · Ba yếu tố nhạy nhất | Làm lại +51,77%; xem lại +40,70%; lương +23,12% [simulated] | Giả lập | PM trợ lý hoàn phí |
+| 3 · So với nhân viên tự làm | Cả hệ thống + cố định trong phạm vi: 5.217,09 đ/yêu cầu ở đủ tải; 6.303,31 đ ở nửa tải, so 12.000 đ thủ công [simulated] | Giả lập | Trưởng bộ phận Vận hành CSKH |
+| 4 · Chỉ số | Toàn mẫu: chính 82,83%; sửa/bỏ 27,12%; mở lại 4,25%. Phạm vi mở lại 3,97%, riêng hang_nang 8,23%; 14 event đã đặc tả, chưa triển khai | Xong, có bằng chứng | Trưởng nhóm CSKH |
+| 5 · Lỗi và khắc phục | Hai cột nhãn khớp 20/20=100%; 5 loại lỗi có cách phát hiện và vai trò phụ trách; nguồn/khai báo độc lập ghi trong bảng C | Xong, có bằng chứng | Kỹ sư trưởng agent |
+| 6 · Pilot | 20+20 staff; MDE +6 điểm; 5.980 mẫu thô/nhóm =299/người, DE 6,96, hiệu dụng 859,20; power chỉ 0,6418 nếu thật sự +5; 4 luật dừng, quyết định đề xuất 05/01/2027 | Xong, có bằng chứng | Trưởng bộ phận Vận hành CSKH |
+| 7 · Rủi ro kinh tế | Xem lại 100%: 11.742,79 đ/việc với 9 phút làm lại; 12.414,50 đ với 15,2973 phút; chưa cố định/chuyển nhân viên [simulated] | Giả lập | PM trợ lý hoàn phí |
 
-**Đề xuất:** Chưa chốt. Chọn một: Go · Go có điều kiện · No-go. Go có điều kiện: ghi từng điều kiện, người phụ trách, ngày kiểm tra. No-go: ghi việc phải làm để quay lại cổng.
+Điều kiện trước khi chạy pilot; lịch 01/12/2026–05/01/2027 là đề xuất giả định, chưa có phê duyệt:
 
-- Chưa có điều kiện hay căn cứ. Điền sau khi nhận đủ số từ Bình, Long và Minh.
+- Kỹ sư trưởng agent: trước 01/12/2026 kiểm chống hoàn trùng, đối soát sổ cái và đủ event; trước 07/12 thay phút simulated bằng đo thật.
+- Trưởng bộ phận Vận hành CSKH: trước 01/12 ký chấp nhận MDE +6, power bất lợi +5 và roster 20+20; chỉ lấy cohort 15–28/12, theo dõi đến 04/01.
+- Trưởng nhóm CSKH: trước 08/12 đánh giá review 100% hang_nang; chỉ giảm khi đạt gate audit và sửa/bỏ, không hạ an toàn để đạt chi phí.
+- PM trợ lý hoàn phí: kiểm chi phí hằng tuần; không mở rộng nếu vượt gate hoặc thiếu mẫu. Đến 05/01 thiếu 299 yêu cầu/người thì No-go cho mở rộng vì chưa đủ bằng chứng.
 
-_Người giữ hồ sơ: Dũng. Mục 1, 2, 3, 7 sẽ ghi **Giả lập** khi dựa trên cột `_simulated`._
+Phạm vi chỉ noi_dia + hang_nang; loại quoc_te (22.515 đ/việc, 27,33% thành công) và doi_tac (10.215 đ/việc, 54,41%) [chi phí simulated]. Đây là đề xuất của nhóm; chưa có kết quả duyệt chéo.
+
+**Đề xuất: Go có điều kiện.**

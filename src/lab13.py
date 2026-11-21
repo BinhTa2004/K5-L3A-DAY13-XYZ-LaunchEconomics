@@ -1,9 +1,9 @@
 """Lab 13 · Chi phí A–B và ba chỉ số E, tính trực tiếp từ CSV.
 
-Chạy trong src/: python lab13.py. Phần này chỉ cần pandas, không gọi API.
+Chạy trong src/: python lab13.py. Cần pandas và statsmodels, không gọi API.
 Mọi chi phí có thời gian nhân viên giả lập được ghi nhãn simulated.
 Nguồn công thức: docs/du_lieu_va_cong_thuc.md và hướng dẫn chi tiết Lab 13.
-Bản khởi đầu giữ nguyên ở lab13_starter.py; phần D1 do Minh bổ sung.
+Bản khởi đầu giữ nguyên ở lab13_starter.py; D1 do Minh bổ sung và được rà soát khi tích hợp.
 """
 import math
 import sys
@@ -125,9 +125,14 @@ def chi_phi_co_dinh(runs, reqs, yeu_cau_thang=YEU_CAU_THANG, co_dinh=CO_DINH_THA
     kq = mo_hinh(runs, pham_vi)
     thanh_cong_thang = yeu_cau_thang * kq['thanh_cong'] / len(reqs)
     co_dinh_moi_viec = co_dinh / thanh_cong_thang if thanh_cong_thang else math.inf
+    yeu_cau_pham_vi_thang = yeu_cau_thang * len(pham_vi) / len(reqs)
+    co_dinh_moi_yc_pham_vi = co_dinh / yeu_cau_pham_vi_thang
     return dict(yeu_cau_thang=yeu_cau_thang, thanh_cong_thang=thanh_cong_thang,
                 co_dinh_moi_viec=co_dinh_moi_viec, cps_bien_doi=kq['cps'],
-                cps_cong_co_dinh=kq['cps'] + co_dinh_moi_viec)
+                cps_cong_co_dinh=kq['cps'] + co_dinh_moi_viec,
+                yeu_cau_pham_vi_thang=yeu_cau_pham_vi_thang,
+                co_dinh_moi_yc_pham_vi=co_dinh_moi_yc_pham_vi,
+                he_thong_co_dinh_moi_yc=kq['he_thong_moi_yc'] + co_dinh_moi_yc_pham_vi)
 
 
 def bang_do_nhay(runs, reqs):
@@ -251,6 +256,11 @@ def in_phan_a(runs, reqs):
              ['Tổng yêu cầu / tháng', 'Thành công phạm vi / tháng', 'Cố định / việc (đ)',
               'CPS + cố định (đ)', 'CPS / 12.000'], dong)
     print('A4 phân bổ theo tỷ trọng thành công trong toàn mẫu; so sánh vận hành phải tính cả phần chuyển nhân viên như B3.')
+    for khoi_luong in (YEU_CAU_THANG, YEU_CAU_THANG / 2):
+        kq = chi_phi_co_dinh(runs, reqs, khoi_luong)
+        print(f"A4 · Hệ thống + cố định / yêu cầu trong phạm vi ở {_so(khoi_luong)} "
+              f"yêu cầu toàn công ty/tháng = {_so(kq['he_thong_co_dinh_moi_yc'], 2)} đ "
+              f"[simulated; gồm nhân viên xử lý việc không thành công].")
 
 
 def in_phan_b(runs, reqs):
@@ -309,6 +319,13 @@ def tinh_co_mau_d1(reqs=None, baseline=0.70, mde=0.05, alpha=0.05, power=0.80, i
     deff_e = 1 + (m_min_e - 1) * icc
     n_nhom_e = cum_nhan_vien * m_min_e
     neff_e = n_nhom_e / deff_e
+    # Kiểm tra đánh đổi của kế hoạch: cỡ mẫu đủ cho +6 điểm không bảo đảm power cho +5.
+    power_5_diem = float(NormalIndPower().power(
+        effect_size=proportion_effectsize(baseline + 0.05, baseline),
+        nobs1=neff_e, alpha=alpha, ratio=1.0))
+    power_6_diem = float(NormalIndPower().power(
+        effect_size=proportion_effectsize(baseline + 0.06, baseline),
+        nobs1=neff_e, alpha=alpha, ratio=1.0))
 
     kq = dict(
         n_yeu_cau_raw=n_yeu_cau_raw, n_yeu_cau=n_yeu_cau,
@@ -316,6 +333,7 @@ def tinh_co_mau_d1(reqs=None, baseline=0.70, mde=0.05, alpha=0.05, power=0.80, i
         tong_nhan_vien_b=2 * nhan_vien_moi_nhom_b,
         max_neff_nhan_vien=max_neff_nhan_vien, max_neff_depot=max_neff_depot,
         m_min_e=m_min_e, deff_e=deff_e, n_nhom_e=n_nhom_e, neff_e=neff_e,
+        power_5_diem=power_5_diem, power_6_diem=power_6_diem,
     )
     if reqs is not None:
         pham_vi = reqs.loc[reqs['loai'].isin(PHAM_VI_PILOT)]
@@ -347,6 +365,10 @@ def in_phan_d(reqs):
     print(f"Tỉ lệ mo_lai_trong_7_ngay chạy thử: toàn mẫu {_phan_tram(kq['mo_lai_toan_mau'])}; "
           f"phạm vi noi_dia + hang_nang {_phan_tram(kq['mo_lai_pham_vi'])} "
           f"(noi_dia {_phan_tram(kq['mo_lai_noi_dia'])}, hang_nang {_phan_tram(kq['mo_lai_hang_nang'])}).")
+    print(f"Kế hoạch +6 điểm: {_so(kq['n_nhom_e'])} mẫu thô/nhóm, "
+          f"{_so(kq['neff_e'], 2)} mẫu hiệu dụng/nhóm; "
+          f"power khi tác động thật +6 điểm = {_so(kq['power_6_diem'], 4)}, "
+          f"khi chỉ +5 điểm = {_so(kq['power_5_diem'], 4)}.")
 
 
 def in_chi_so(reqs):

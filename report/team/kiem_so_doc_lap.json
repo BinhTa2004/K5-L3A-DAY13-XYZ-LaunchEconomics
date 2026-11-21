@@ -1,0 +1,96 @@
+{
+  "method": "stdlib csv + Decimal + NormalDist; no import of lab13",
+  "simulated": true,
+  "all_requests": {
+    "requests": 1200,
+    "runs": 1624,
+    "success": 978,
+    "token": 245585.132,
+    "tool": 84000,
+    "review": 1780000.0,
+    "rework": 2264000.0,
+    "total": 4373585.132,
+    "cps": 4471.968437627812,
+    "system_per_request": 5864.654276666667
+  },
+  "by_type": {
+    "doi_tac": {
+      "requests": 68,
+      "runs": 128,
+      "success": 37,
+      "token": 19215.092,
+      "tool": 6735,
+      "review": 202000.0,
+      "rework": 150000.0,
+      "total": 377950.092,
+      "cps": 10214.867351351351,
+      "system_per_request": 11028.677823529411
+    },
+    "hang_nang": {
+      "requests": 158,
+      "runs": 232,
+      "success": 117,
+      "token": 34035.976,
+      "tool": 11790,
+      "review": 346000.0,
+      "rework": 570000.0,
+      "total": 961825.976,
+      "cps": 8220.734837606838,
+      "system_per_request": 9201.430227848101
+    },
+    "noi_dia": {
+      "requests": 824,
+      "runs": 916,
+      "success": 783,
+      "token": 130987.298,
+      "tool": 47700,
+      "review": 942000.0,
+      "rework": 990000.0,
+      "total": 2110687.298,
+      "cps": 2695.641504469987,
+      "system_per_request": 3158.6010898058253
+    },
+    "quoc_te": {
+      "requests": 150,
+      "runs": 348,
+      "success": 41,
+      "token": 61346.766,
+      "tool": 17775,
+      "review": 290000.0,
+      "rework": 554000.0,
+      "total": 923121.766,
+      "cps": 22515.165024390244,
+      "system_per_request": 14874.145106666667
+    }
+  },
+  "scope": {
+    "requests": 982,
+    "runs": 1148,
+    "success": 900,
+    "token": 165023.274,
+    "tool": 59490,
+    "review": 1288000.0,
+    "rework": 1560000.0,
+    "total": 3072513.274,
+    "cps": 3413.903637777778,
+    "system_per_request": 4130.868914460285
+  },
+  "scope_system_including_fixed_per_request": 5217.0875159538355,
+  "metrics": {
+    "primary_count": 994,
+    "ignored_count": 48,
+    "reviewed_count": 177,
+    "reopened_count": 51,
+    "denominator": 1200
+  },
+  "d1": {
+    "n_per_arm_z": 1251,
+    "design_effect_75": 2.48,
+    "raw_per_arm_75": 3103,
+    "staff_per_arm": 42,
+    "effective_staff_limit": 1000,
+    "effective_depot_limit": 300,
+    "requests_per_staff_for_6pp": 299,
+    "effective_sample_for_6pp": 859.1954022988506
+  }
+}

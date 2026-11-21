@@ -1,6 +1,6 @@
 # Báo cáo nhóm XYZ
 
-Phân công chi tiết, mốc bàn giao và cách gửi pull request: [TEAM.md](../../TEAM.md). Các hồ sơ hiện vẫn là mẫu cần hoàn thiện.
+Phân công chi tiết, mốc bàn giao và cách gửi pull request: [TEAM.md](../../TEAM.md). Các hồ sơ đã tổng hợp từ phần nhóm; riêng phiếu duyệt chéo đang chờ buổi thực tế theo xác nhận của Bình.
 
 | File | Nhiệm vụ | Ai điền | Ghi chú |
 |---|---|---|---|
@@ -15,14 +15,14 @@ Phân công chi tiết, mốc bàn giao và cách gửi pull request: [TEAM.md](
 
 Giữ nguyên tên các file trên để trợ giảng đối chiếu được.
 
-Đã tạo sẵn bốn báo cáo cá nhân với thông tin và phần việc dự kiến:
+Bốn báo cáo cá nhân đã cập nhật theo commit và bằng chứng:
 
 - [Tạ Công Bình — 2A202603628](2A202603628_TaCongBinh.md)
 - [Hoàng Hải Long — 2A202603670](2A202603670_HoangHaiLong.md)
 - [Khuất Tiến Minh — 2A202603616](2A202603616_KhuatTienMinh.md)
 - [Nguyễn Tuấn Dũng — 2A202603608](2A202603608_NguyenTuanDung.md)
 
-Mỗi người tự điền đóng góp, commit, kết quả kiểm và công cụ AI thực sự đã dùng sau khi làm. Giữ nguyên file mẫu `MSSV_HoTen.md`. Định dạng tên:
+Từng người đọc lại, xác nhận đóng góp và khai báo công cụ AI; phần Codex bổ sung chung đã được tách khỏi công việc gốc. Giữ nguyên file mẫu `MSSV_HoTen.md`. Định dạng tên:
 
 ```text
 report/team/MSSV_HoTen.md
@@ -31,3 +31,5 @@ report/team/MSSV_HoTen.md
 Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
 Đóng góp và bằng chứng của từng thành viên cũng phải được khai báo trong `TEAM.md`.
+
+Bằng chứng bổ sung: [output tính toán](ket_qua_tinh_toan.txt), [kiểm số csv/Decimal](kiem_so_doc_lap.json), [rà soát theo người và rubric](kiem_tra_hoan_thien.md).

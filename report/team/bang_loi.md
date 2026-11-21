@@ -31,6 +31,8 @@ Người gắn nhãn 1: Khuất Tiến Minh (2A202603616) · Người gắn nhã
 
 **Tỉ lệ đồng thuận:** 20 / 20 = 100% (đạt ngưỡng ≥ 80%, không cần viết lại định nghĩa).
 
+Nguồn giữ nguyên: nhãn 2 từ [bản của Dũng](nhan_dung_doc_lap.md) (`0a72f5f`, có khai báo Claude hỗ trợ nháp); nhãn 1 và bảng so từ commit Minh `99aa565`. Rà soát cuối xác nhận hai cột trùng 20/20; tính độc lập và thời gian gắn là khai báo của thành viên, không được suy ra chỉ từ mức đồng thuận. Chưa thấy bản khóa riêng của nhãn 1 trước khi so trong repo; không tạo lại bản đó sau khi đã so.
+
 ## Quy tắc phân biệt cho các ca không trùng
 
 Mỗi ca không trùng một câu. Đồng thuận dưới 80% thì ghi định nghĩa đã viết lại.
@@ -48,7 +50,7 @@ Cách phát hiện phải đo được (event, ngưỡng, tần suất). Ngườ
 | Ca | Loại lỗi | Phát hiện bằng gì | Khắc phục thế nào | Ai phụ trách |
 | --: | --- | --- | --- | --- |
 | 1 | Do người dùng | Event `bank_payout_failed` (mã lỗi định dạng tài khoản) vượt 1% tổng lệnh hoàn trong ngày, kiểm tra hằng ngày. | Thêm kiểm tra độ dài và định dạng số tài khoản ngay trên form trước khi gửi lệnh hoàn; báo lỗi cụ thể để khách sửa. | Kỹ sư giao diện CSKH (Frontend Engineer) |
-| 20 | Hệ thống | Event `duplicate_refund_detected` (trùng `order_id` có ≥ 2 lệnh hoàn trong 24 giờ) > 0 ca, cảnh báo tức thời. | Bắt buộc dùng khoá chống trùng (`idempotency_key` theo `order_id`) ở API hoàn tiền và chặn gửi lệnh thứ hai khi đơn đang xử lý. | Kỹ sư backend hệ thống thanh toán (Backend Engineer) |
+| 20 | Hệ thống | Từ `refund_ledger_write`: cùng `order_id` có ≥2 bút toán hoàn thành công trong 24 giờ; ≥1 ca thì cảnh báo tức thời, không đếm retry bị chặn. | Bắt buộc khoá chống trùng theo nghiệp vụ ở API hoàn tiền và chặn lệnh thứ hai khi đang xử lý; đối soát trước khi mở lại. | Kỹ sư backend hệ thống thanh toán (Backend Engineer) |
 | 18 | Ngữ cảnh | Event `ticket_reopened` với lý do "thiếu tiền hoàn" trên đơn tính đúng chính sách vượt 2% tổng đơn hoàn mỗi tuần, rà soát hằng tuần. | Hiển thị rõ công thức tính tiền hoàn trong tin nhắn (phí gốc × tỉ lệ hoàn = số tiền nhận) và dẫn điều khoản áp dụng. | Quản lý sản phẩm CSKH (Product Manager) |
-| 13 | Giới hạn hệ thống | Event `out_of_scope_query` (từ khóa "bảo hiểm" / sản phẩm đối tác) không kèm `handoff_triggered` vượt 0,5% lượt hội thoại mỗi tuần. | Bổ sung bộ phân loại phạm vi ngay đầu luồng: từ chối lịch sự, nêu rõ ngoài phạm vi trợ lý và chuyển ngay sang kênh bảo hiểm đối tác. | Kỹ sư AI phụ trách trợ lý (AI Engineer) |
-| 5 | Ngầm | Event `audit_refund_overpaid` từ kiểm toán mẫu 5% đơn có mã giảm giá hằng tuần: chênh lệch > 0 đ xuất hiện ở ≥ 1% mẫu kiểm. | Khóa công thức tính hoàn tiền theo trường `net_paid_amount` (giá sau giảm) thay vì giá gốc và chạy đối soát tự động cuối ngày. | Trưởng nhóm vận hành đối soát tài chính (Finance Ops Lead) |
+| 13 | Giới hạn hệ thống | `out_of_scope_query` không kèm `handoff_to_staff` cùng request vượt 0,5% lượt hội thoại mỗi tuần. | Phân loại phạm vi từ đầu: từ chối lịch sự, giải thích giới hạn và chuyển kênh bảo hiểm đối tác. | Kỹ sư AI phụ trách trợ lý (AI Engineer) |
+| 5 | Ngầm | `audit_sample_checked` trên mẫu 5% đơn có mã giảm giá mỗi tuần: tiền hoàn >tiền đúng ở ≥1% mẫu; ≥1 ca xác nhận sai tiền kích hoạt gate D. | Tính theo `net_paid_amount` sau giảm; đối soát cuối ngày và rà lại mọi đơn cùng phiên bản công thức lỗi. | Trưởng nhóm vận hành đối soát tài chính (Finance Ops Lead) |

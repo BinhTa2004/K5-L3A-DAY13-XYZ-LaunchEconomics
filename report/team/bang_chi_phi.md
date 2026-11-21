@@ -66,6 +66,8 @@ Phạm vi có 982 yêu cầu, 900 việc thành công. Chi phí biến đổi m�
 - Ở 45.000 yêu cầu/tháng, chi phí cố định không đổi kết luận (0,38× [simulated]). Khi còn một nửa khối lượng, chi phí cố định mỗi việc tăng gấp đôi lên 2.370 đ (0,48× [simulated]).
 - Tính tay: cố định chỉ đẩy lên 12.000 đ khi còn dưới khoảng **6.200 yêu cầu/tháng** (40.000.000 / (12.000 − 3.414) × 1.200 / 900) [simulated]. Mức này chưa cộng phần chuyển nhân viên.
 
+So sánh vận hành cùng mẫu số yêu cầu trong phạm vi, gồm nhân viên xử lý 82 ca không thành công và cố định: `(3.072.513,274 + 82 × 12.000) / 982 + 40.000.000 / (45.000 × 982 / 1.200)` = **5.217,09 đ/yêu cầu** [simulated]; ở nửa khối lượng là **6.303,31 đ/yêu cầu** [simulated]. Không dùng tỉ số CPS 0,38× thay cho so sánh đầy đủ này.
+
 ## B1 · Đổi từng yếu tố
 
 Gốc (A2): 4.472 đ [simulated]. Chưa có chi phí cố định.
@@ -104,5 +106,5 @@ Chi phí cả hệ thống = tổng chi phí trợ lý + 12.000 đ × số yêu 
 
 ## B4 · Nếu phải xem lại tất cả
 
-- Xem lại 948 yêu cầu có run ok (5 phút/lần) và 48 ca làm lại (9 phút/ca): **11.743 đ = 0,98×** của 12.000 đ [simulated]. Nếu dùng trung bình 15,3 phút/ca làm lại như trong dữ liệu: **12.414 đ = 1,03×** [simulated], tức đắt hơn nhân viên tự làm.
+- Xem lại 948 yêu cầu có run ok (5 phút/lần), 48 ca làm lại: **11.742,79 đ/việc** với 9 phút/ca; **12.414,50 đ/việc = 1,03×** với trung bình chính xác 15,2973 phút/ca từ CSV [simulated]; chưa cộng cố định và phần chuyển nhân viên.
 - Pilot phải học được hai điều: tỉ lệ xem lại có thể giảm an toàn xuống bao nhiêu, và mỗi lần xem lại có dưới mức hoà vốn **5,1 phút** (hoặc 4,8 phút nếu làm lại mất 15,3 phút) không [simulated].

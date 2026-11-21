@@ -1,44 +1,34 @@
 # Báo cáo cá nhân — Hoàng Hải Long — 2A202603670
 
-Trạng thái: mới phân công, chưa ghi nhận kết quả thực hiện. Thông tin đối chiếu từ repo Day 08 của nhóm. Phân công và bàn giao: [TEAM.md](../../TEAM.md).
-
 ## 1. Thông tin thành viên
 
-- Họ tên: Hoàng Hải Long
-- MSSV: 2A202603670
-- GitHub: hwangron
-- Vai trong nhóm: Người kiểm số; bảng chi phí A–B, chỉ số và rủi ro E1–E2.
+- Họ tên: Hoàng Hải Long; MSSV: 2A202603670; GitHub: hwangron.
+- Vai: người kiểm số; bảng chi phí A–B, chỉ số/event và rủi ro E1–E2; kiểm D1.
+- Trạng thái: phần A–B/E và lượt kiểm D1 đã bàn giao (`19cb5be`, `093ec85`); schema và báo cáo được bổ sung trong lần tích hợp cuối.
 
-## 2. Phần việc được giao
+## 2. Phần việc phụ trách
 
-- Tính tay ít nhất một khoản để đối chiếu output của Bình; điền A1–A4, B1–B4 trong `bang_chi_phi.md`.
-- Kiểm độc lập cỡ mẫu D1 của Minh và phân biệt chi phí mỗi việc thành công với chi phí cả hệ thống.
-- Hoàn thiện `chi_so.md`: ba chỉ số tính thử, hai chỉ số bổ sung, ít nhất sáu event có `trace_id`, ít nhất hai rủi ro có số; chuyển số chính cho Dũng.
+Đối chiếu ít nhất một khoản bằng cách độc lập, hoàn thiện bảng A1–A4/B1–B4, ba chỉ số thử/hai chỉ số thêm/event/rủi ro và kiểm cỡ mẫu của Minh.
 
-## 3. Đóng góp cụ thể đã thực hiện
+## 3. Đóng góp cụ thể
 
-- Tự làm: kiểm số độc lập phần A (token, tool, xem lại, làm lại, chi phí mỗi việc thành công, dòng quoc_te ở A3) bằng script riêng, không gọi `lab13.py`.
-- Tự làm: điền toàn bộ `bang_chi_phi.md` (A1–A4, B1–B4) và câu trả lời. Tính tay thêm mức khối lượng hoà vốn ở A4 (khoảng 6.200 yêu cầu/tháng [simulated]) và chênh lệch chi phí cả hệ thống ở B3 (548.560 đ [simulated]).
-- Tự làm: viết `chi_so.md`: 3 chỉ số tính thử, 2 chỉ số tự đề xuất, 9 event có `trace_id`, kiểm tra chéo chỉ số với event, 3 dòng rủi ro kinh tế.
-- Phối hợp: dùng output A–B và E1 của Bình (commit `4bdce40`).
-- Tự làm: kiểm độc lập D1 của Minh (commit `99aa565`, nhánh `day13/minh-errors-pilot`) bằng công thức cỡ mẫu trong `docs/` với z chính xác, không dùng statsmodels. Cả 5 câu khớp. Đã gửi Minh 3 góp ý cho `pilot_plan.yaml`.
+Theo bản bàn giao của Long: dùng script riêng kiểm token/tool/xem lại/làm lại/CPS và quoc_te, không gọi `lab13.py`; điền toàn bộ bảng chi phí, ba chỉ số, hai chỉ số đề xuất, chín event và ba rủi ro. `093ec85` ghi kiểm D1 bằng z chính xác và ba góp ý cho YAML.
 
-## 4. Bằng chứng
+Lần hoàn thiện chung có Codex bổ sung 14 event/khóa/thời gian còn thiếu để đo được các luật dừng, so chi phí cùng mẫu số có cố định, và tạo [script csv/Decimal](../../src/kiem_so_doc_lap.py). Script bổ sung này độc lập với `lab13.py`, không được coi là script gốc Long đã dùng.
 
-- Nhánh `day13/long-cost-metrics`. File đã sửa: `report/team/bang_chi_phi.md`, `report/team/chi_so.md`.
-- Lệnh đã chạy: `cd src && python lab13.py` in "Ba phép thử đáp án biết trước: ĐẠT" (1,20 · 1,25 · 1,25).
-- Kiểm độc lập: token = 5.771.712 / 1.000 × 26 + 734.774 / 1.000 × 130 = 245.585,13 đ; tool = 5.600 × 15 = 84.000 đ; chi phí mỗi việc thành công = 4.373.585,13 / 978 = 4.471,97 đ [simulated]. Lệch 0% so với output của Bình.
-- B1: mỗi kịch bản "giảm một nửa" giảm đúng nửa mức tăng của "gấp đôi" (5,62 → 2,81; 40,70 → 20,35; 51,77 → 25,88).
-- `grep -rni production report/team` không in gì.
-- Kiểm D1: a) 1.251 so với 1.250 của Minh; b) DE 2,48, 3.103 so với 3.100, 42 nhân viên/nhóm, tổng 84 > 40; c) trần 1.000; d) trần 300; e) m ≥ 299, DE 6,96, n_eff 859,2. Lệch tối đa 0,25%.
-- Con số bất lợi: nếu tác động thật chỉ +5 điểm thì với n_eff 859 power chỉ còn khoảng 0,64.
-- `pilot_plan.yaml` của Minh đọc được bằng `yaml.safe_load`, có 3 luật dừng, không còn dấu `?` ngoài chú thích.
+## 4. Bằng chứng và kết quả
 
-## 5. Công cụ AI đã dùng
+[Bảng chi phí](bang_chi_phi.md), [chỉ số/event](chi_so.md), [kết quả kiểm độc lập](kiem_so_doc_lap.json), [output mô hình](ket_qua_tinh_toan.txt). Commit gốc `19cb5be`, lượt kiểm D1 `093ec85`.
 
-- Claude Code (Claude Opus): đọc đề, lập kế hoạch, viết script kiểm số độc lập, soạn nội dung `bang_chi_phi.md` và `chi_so.md` từ output của `lab13.py`.
-- Cách tự kiểm tra: mọi số đều lấy từ output `lab13.py` hoặc từ script kiểm độc lập (đọc trực tiếp CSV), rồi so với số tham khảo trong `docs/Lab13_Huong_dan_chi_tiet_buoi_chieu.md` (lệch không quá 2%). Không dùng AI để bịa số.
+- Token =5.771.712/1.000×26 +734.774/1.000×130 =245.585,13 đ; tool =5.600×15 =84.000 đ. Xem lại 890×2.000=1.780.000 đ, làm lại 1.132×2.000=2.264.000 đ [simulated].
+- CPS =4.373.585,13/978=4.471,97 đ [simulated], khớp mô hình; làm lại +51,77%, xem lại +40,70%, lương +23,12% [simulated].
+- D1 theo z: 1.251 và 3.103, so statsmodels 1.250 và 3.100, đều sai khác <0,25%; 42 người/nhánh, trần hiệu dụng 1.000 hoặc 300, m>=299 cho +6 điểm.
+- Phần tích hợp chạy 16/16 kiểm tra đạt; `yaml.safe_load` đọc được. Power 0,8010 ở +6 nhưng 0,6418 ở +5; không bỏ qua số bất lợi.
 
-## 6. Tự đánh giá
+## 5. Công cụ AI và kiểm tra
 
-Chưa cập nhật. Thành viên tự nêu kết quả, hạn chế và điều cần cải thiện sau khi làm.
+Theo báo cáo gốc, Claude Code (Claude Opus) hỗ trợ đọc đề, script và soạn A–B/E; kiểm từ CSV, output và công thức nguồn. Codex hỗ trợ rà soát cuối và script Decimal lưu trong repo; số được tạo bằng chạy code, không sửa tay artifact kết quả. Các lượt hỗ trợ được phân biệt với việc cá nhân tự thực hiện.
+
+## 6. Đánh giá từ hồ sơ và việc tiếp theo
+
+Đã có bảng số, kiểm D1 và contract event đủ cho chỉ số/gate. Hạn chế là phút simulated, ICC giả định và chưa có đối chứng thật; 82,83% không chứng minh trợ lý nâng chất lượng. Cần đọc lại schema mới, kiểm phút thật và audit tiền trước pilot; hỗ trợ Dũng bảo vệ chi phí và tự nộp LMS.

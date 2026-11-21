@@ -1,50 +1,67 @@
-# Đặc tả chỉ số, event và rủi ro kinh tế · Nhiệm vụ E1, E2
+# Đặc tả chỉ số, event và rủi ro kinh tế · E1, E2
 
-Số tính bằng `src/lab13.py` (hàm `tinh_chi_so`, commit `4bdce40`). Long kiểm lại bằng script riêng, kết quả khớp. Toàn bộ dữ liệu là giả lập.
+Số cơ sở từ `src/lab13.py` của Bình (`4bdce40`), Long kiểm ở `19cb5be` và `093ec85`; lần tích hợp cuối bổ sung schema để các gate C–D đo được. Toàn bộ dữ liệu là giả lập; thời gian và kết quả chi phí dẫn từ cột `_simulated` có nhãn simulated.
 
-## E1 · Đặc tả chỉ số
+## E1 · Chỉ số
 
-| Loại | Chỉ số | Công thức | Tính thử trên 1.200 yêu cầu |
+| Loại | Chỉ số | Công thức | Kết quả trên 1.200 yêu cầu |
 | --- | --- | --- | --- |
-| Chính (kết quả) | % yêu cầu đóng trong 24 giờ và không mở lại trong 7 ngày | `dong_trong_24h` bằng 1 và `mo_lai_trong_7_ngay` bằng 0, chia tổng số yêu cầu | 82,83% (994/1.200) |
-| Dùng | Tỉ lệ bỏ qua gợi ý | `quyet_dinh_xem_lai` là `sua` hoặc `bo`, chia số yêu cầu được xem lại | 27,12% (48/177) |
-| An toàn | Tỉ lệ lỗi lọt đến khách | `mo_lai_trong_7_ngay` bằng 1, chia tổng số yêu cầu | 4,25% (51/1.200) |
-| Dùng | Nhóm tự đề xuất: % yêu cầu ở nhóm can thiệp mà nhân viên mở bằng trợ lý | Số `refund_request_created` (arm = can_thiep) có ít nhất một `agent_suggestion_shown` cùng `trace_id`, chia số `refund_request_created` (arm = can_thiep) | Không cần tính |
-| An toàn | Nhóm tự đề xuất: % đơn hoàn sai tiền khi kiểm tra mẫu hằng tuần | Số `audit_sample_checked` có `so_tien_da_hoan` khác `so_tien_dung`, chia số `audit_sample_checked`. Chỉ số này bắt cả lỗi ngầm mà khách chưa mở lại | Không cần tính |
+| Chính | Đóng 24 giờ, không mở lại 7 ngày | Yêu cầu `dong_trong_24h=1` và `mo_lai_trong_7_ngay=0` / tổng yêu cầu | 994/1.200 = 82,83% |
+| Dùng | Bỏ qua gợi ý | Yêu cầu được xem lại có quyết định `sua` hoặc `bo` / số được xem lại | 48/177 = 27,12% |
+| An toàn | Mở lại trong 7 ngày, đại diện lỗi lọt tới khách | Yêu cầu `mo_lai_trong_7_ngay=1` / tổng yêu cầu | 51/1.200 = 4,25% |
+| Dùng, bổ sung | Tỉ lệ yêu cầu can thiệp có gợi ý hiển thị | Yêu cầu arm=can_thiep có `agent_suggestion_shown` / mọi yêu cầu đủ điều kiện arm=can_thiep | Chưa đo trong CSV; đặc tả cho pilot |
+| An toàn, bổ sung | Sai tiền qua kiểm toán mẫu | Đơn audit có tiền hoàn khác tiền đúng / đơn audit; lấy một bản chốt mỗi đơn | Chưa đo trong CSV; bắt cả lỗi ngầm |
 
-Chỉ số trong đợt chạy thử là 82,83% (chính), 27,12% (dùng) và 4,25% (an toàn). Đợt chạy thử không có nhóm đối chứng, nên các số này không chứng minh trợ lý đã nâng chỉ số so với mức 0,70.
+Trong phạm vi noi_dia + hang_nang: chính 906/982 = 92,26%; sửa/bỏ 27/128 = 21,09%; mở lại 39/982 = 3,97%. Riêng hang_nang mở lại 13/158 = 8,23%, cần xem lại và báo riêng, không áp ngưỡng toàn phạm vi trực tiếp cho loại này.
+
+Đợt chạy thử không có đối chứng. Không coi 82,83% so với baseline giả định 70% là tác động nhân quả. Trong pilot, đo intention-to-treat trên 20 staff mỗi nhánh và cohort cố định trong `pilot_plan.yaml`; phải đủ 7 ngày theo dõi trước khi chốt kết quả.
 
 ## Danh sách event
 
-Chín event, mỗi event có `trace_id` để nối với trace của agent.
+14 event. Mỗi event có `event_id`, `occurred_at` và `trace_id`; event cấp yêu cầu còn có `request_id`, `staff_id`, `arm`, `depot`, `loai`. `pilot_staff_assigned` dùng trace của phiên phân nhóm, nối qua `staff_id` với trace yêu cầu. Đây là schema đề xuất, chưa phải hệ thống log đã triển khai.
 
-| Event | Ai tạo | Thuộc tính chính | Thời điểm |
+| Event | Ai tạo | Thuộc tính riêng ngoài trường chung | Thời điểm |
 | --- | --- | --- | --- |
-| `refund_request_created` | App khách | request_id, depot, loai, so_tien, arm, trace_id | Khi khách gửi yêu cầu |
-| `agent_run_completed` | Agent | attempt, tokens_in, tokens_out, tool_calls, status, trace_id | Sau mỗi lần chạy, kể cả lần lỗi |
-| `agent_suggestion_shown` | Giao diện nhân viên | staff_id, so_tien_de_xuat, trace_id | Khi gợi ý hiện ra cho nhân viên |
-| `staff_review_decision` | Nhân viên | quyet_dinh (giu / sua / bo), phut_xem_lai đo thật, trace_id | Khi nhân viên bấm giữ, sửa hoặc bỏ |
-| `staff_rework_completed` | Nhân viên | phut_lam_lai đo thật, ly_do, trace_id | Khi nhân viên làm lại xong |
-| `handoff_to_staff` | Agent | ly_do, so_lan_da_chay, trace_id | Khi chuyển yêu cầu cho nhân viên |
-| `ticket_closed` | Hệ thống ticket | closed_at, trace_id | Khi yêu cầu được đóng |
-| `ticket_reopened` | Khách | reopened_at, ly_do, trace_id | Khi khách mở lại yêu cầu |
-| `audit_sample_checked` | Kế toán | so_tien_da_hoan, so_tien_dung, trace_id | Hằng tuần, trên mẫu ngẫu nhiên |
+| `refund_request_created` | App khách | `created_at`, `order_id`, `so_tien`, `eligible` | Khi yêu cầu tới, cả hai nhánh |
+| `agent_run_completed` | Agent | `run_id`, `attempt`, `tokens_in`, `tokens_out`, `tool_calls`, `status` | Mọi lần chạy, kể cả lỗi |
+| `agent_suggestion_shown` | Giao diện staff | `suggestion_id`, `so_tien_de_xuat` | Khi gợi ý thật sự hiển thị |
+| `staff_review_decision` | Giao diện staff | `decision_id`, `suggestion_id`, `quyet_dinh`, `phut_xem_lai`, `final` | Khi giữ/sửa/bỏ; phút đo thật |
+| `staff_rework_completed` | Hệ thống CSKH | `work_id`, `phut_lam_lai`, `ly_do` | Khi làm lại xong; phút đo thật |
+| `handoff_to_staff` | Agent | `ly_do`, `so_lan_da_chay` | Chuyển nhân viên |
+| `ticket_closed` | Hệ thống ticket | `closed_at`, `resolution_id` | Khi đóng yêu cầu |
+| `ticket_reopened` | Hệ thống ticket | `reopened_at`, `ly_do` | Khi mở lại |
+| `audit_sample_checked` | Kế toán | `audit_id`, `order_id`, `so_tien_da_hoan`, `so_tien_dung`, `policy_version` | Kiểm ngẫu nhiên hằng tuần |
+| `refund_ledger_write` | Sổ cái | `ledger_entry_id`, `order_id`, `idempotency_key`, `so_tien`, `expected_amount`, `status`, `policy_version` | Mỗi lần ghi/chặn lệnh tiền, gồm lỗi |
+| `request_outcome_finalized` | Bộ đối soát | `ket_qua`, `closed_at`, `followup_complete`, `amount_correct`, `finalized_at` | Khi đủ cửa sổ theo dõi và đối soát tiền |
+| `out_of_scope_query` | Bộ phân loại | `reason`, `handoff_required` | Phát hiện ngoài phạm vi |
+| `bank_payout_failed` | Thanh toán | `order_id`, `error_code` | Chuyển tiền bị từ chối |
+| `pilot_staff_assigned` | Điều phối pilot | `staff_id`, `arm`, `depot`, `seed`, `assigned_at`, `rollout_enabled_at` | Khóa roster và bật quyền theo lịch |
 
-**Kiểm tra chéo:** với mỗi chỉ số ở bảng E1, ghi event dùng để tính. Chỉ số nào không tính được từ danh sách event thì chưa đo được.
+## Cách tính từ event và gate
 
-- Chính: `refund_request_created` (mẫu số, có `created_at`) + `ticket_closed` (đóng trong 24 giờ) + `ticket_reopened` (không mở lại trong 7 ngày).
-- Dùng (bỏ qua gợi ý): `staff_review_decision` (tử số: sua hoặc bo; mẫu số: mọi quyết định).
-- An toàn (lỗi lọt đến khách): `ticket_reopened` trong 7 ngày, chia `refund_request_created`.
-- Dùng (tự đề xuất): `agent_suggestion_shown`, chia `refund_request_created` có arm = can_thiep.
-- An toàn (tự đề xuất): `audit_sample_checked`.
-- Chi phí mỗi việc thành công trong pilot: `agent_run_completed` (token, tool) + `staff_review_decision` và `staff_rework_completed` (phút đo thật thay cho cột simulated).
+| Chỉ số/gate | Event và quy tắc |
+| --- | --- |
+| Chính | Nối `refund_request_created.created_at`, `ticket_closed.closed_at`, `ticket_reopened.reopened_at` theo request; lấy yêu cầu đủ điều kiện, đóng <=24h và không mở lại <=7 ngày |
+| Bỏ qua gợi ý | `staff_review_decision`: một quyết định cuối mỗi yêu cầu được xem lại; tử số `sua`/`bo`, mẫu số gồm cả `giu`; không đếm mỗi lần bấm |
+| Mở lại | Đếm request có `ticket_reopened` trong 7 ngày, chia cohort request đủ theo dõi; không đếm số event mở lại |
+| Sử dụng | Request can thiệp có ít nhất một `agent_suggestion_shown` / request can thiệp đủ điều kiện; cùng công thức với luật dừng <50% |
+| Audit sai tiền | Một kết quả audit chốt mỗi đơn; `so_tien_da_hoan != so_tien_dung`; bổ sung lý do để bắt hoàn thừa như ca 5 |
+| CPS trong pilot | Token/tool trên mọi run + phút review/rework đo thật; chia số `request_outcome_finalized.ket_qua=thanh_cong`, theo định nghĩa đóng/không mở lại/đúng tiền của lab |
+| Chi phí cả hệ thống | Theo B3: tổng trợ lý +12.000 đ mỗi yêu cầu không thành công, chia tổng yêu cầu; cộng 40 triệu/tháng phân bổ theo khối lượng thực tế khi báo phần có cố định [giả định lab, simulated nếu dùng phút giả lập] |
+| Hoàn trùng | Từ `refund_ledger_write`: cùng `order_id` có >=2 bút toán hoàn thành công trong 24h; bút toán retry bị chặn không tính trùng; >=1 ca thì dừng ngay |
+| Ngoài phạm vi chưa chuyển | `out_of_scope_query` không có `handoff_to_staff` cùng request; tên event thống nhất với bảng C |
+| Đủ mẫu | `pilot_staff_assigned` khóa 20+20 người; chọn 299 request đầu đủ điều kiện mỗi staff trong kỳ, kể cả không dùng trợ lý; theo dõi đến ngày khóa dữ liệu |
+
+Dedupe theo `event_id`, rồi theo khóa nghiệp vụ của từng chỉ số; nối nhiều run với một request không được nhân số yêu cầu. Bản chốt muộn và audit phải có phiên bản, lưu lịch sử. Dùng phút đo thật từ tuần 1, không coi cột simulated là thời gian quan sát; đo riêng phần nhân viên xử lý sau handoff để tránh cộng một khoảng thời gian hai lần.
 
 ## E2 · Rủi ro kinh tế
 
-Số lấy từ bảng độ nhạy trong `bang_chi_phi.md`.
+Số lấy từ [bảng chi phí](bang_chi_phi.md); mọi tác động tiền trong bảng này là simulated.
 
-| Rủi ro | Tác động đã tính | Dấu hiệu theo dõi | Hành động | Người phụ trách |
+| Rủi ro | Tác động đã tính | Dấu hiệu | Hành động | Người phụ trách |
 | --- | --- | --- | --- | --- |
-| Số ca làm lại tăng gấp đôi | Chi phí mỗi việc thành công +51,77%, từ 4.472 đ lên 6.787 đ [simulated] | Tỉ lệ làm lại theo tuần trong phạm vi > 7% (đợt chạy thử: 4,89%, tức 48/982) | Thu hẹp về noi_dia, rà 20 trace làm lại gần nhất | PM trợ lý hoàn phí |
-| Phải xem lại 100% kéo dài | 11.743 đ = 0,98× của 12.000 đ; 12.414 đ = 1,03× nếu làm lại mất 15,3 phút như trong dữ liệu [simulated] | % yêu cầu được xem lại > 50% sau 2 tuần pilot, hoặc phút xem lại đo thật > 5,1 phút/lần | Giảm xem lại theo bậc khi tỉ lệ sửa + bỏ < 15% | Trưởng nhóm CSKH |
-| Khối lượng thấp hơn dự kiến | Cố định 40 triệu đ/tháng: +1.185 đ/việc ở 45.000 yêu cầu/tháng, +2.370 đ/việc nếu còn một nửa [simulated] | Số việc thành công theo tuần < 50% kế hoạch | Không mở rộng pilot, đàm phán lại chi phí cố định | PM trợ lý hoàn phí |
+| Làm lại gấp đôi | CPS +51,77%, lên 6.786,90 đ [simulated] | Làm lại >7%/tuần; nền phạm vi 48/982=4,89% | Rà 20 trace, thu hẹp về noi_dia nếu gate vượt | PM trợ lý hoàn phí |
+| Xem lại 100% kéo dài | CPS 11.742,79 đ với 9 phút làm lại; 12.414,50 đ với 15,2973 phút [simulated] | Xem lại >50% sau 2 tuần; phút review vượt hòa vốn 5,12 hoặc 4,80 [simulated] | Chỉ giảm review theo gate audit và sửa/bỏ đã ký; không hạ an toàn để đạt chi phí | Trưởng nhóm CSKH |
+| Khối lượng giảm | Cố định/việc tăng 1.185,19 ->2.370,37 đ khi 45.000 ->22.500 yêu cầu/tháng [simulated] | Thành công/tuần <50% kế hoạch | Dừng mở rộng, xem lại hợp đồng cố định | PM trợ lý hoàn phí |
+
+Ngưỡng chi phí và hành động có quyền dừng xem [pilot_plan.yaml](pilot_plan.yaml); danh sách trên là đặc tả cần bật trước pilot, không chứng minh các cảnh báo đã hoạt động.

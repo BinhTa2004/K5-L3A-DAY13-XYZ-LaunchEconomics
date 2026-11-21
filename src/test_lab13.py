@@ -1,10 +1,14 @@
 """Kiểm toán chi phí, retry và mẫu số chỉ số; chạy: python -m unittest -v test_lab13."""
 import contextlib
+from datetime import date
 import io
 import math
+from pathlib import Path
+from statistics import NormalDist
 import unittest
 
 import pandas as pd
+import yaml
 from pandas.testing import assert_frame_equal
 
 import lab13
@@ -181,6 +185,62 @@ class DoiChieuDuLieuLabTests(unittest.TestCase):
         self.assertIn('1. Số ca làm lại gấp đôi', line)
         self.assertIn('2. Tỉ lệ xem lại gấp đôi', line)
         self.assertIn('3. Lương nhân viên tăng 25%', line)
+
+
+class TichHopPilotTests(unittest.TestCase):
+    def test_d1_matches_independent_two_proportion_formula_and_cluster_limits(self):
+        p1, p2 = 0.70, 0.75
+        za, zb = NormalDist().inv_cdf(0.975), NormalDist().inv_cdf(0.8)
+        pb = (p1 + p2) / 2
+        n = math.ceil((za * math.sqrt(2 * pb * (1 - pb))
+                       + zb * math.sqrt(p1 * (1 - p1) + p2 * (1 - p2))) ** 2 / (p2 - p1) ** 2)
+        self.assertEqual(n, 1251)
+        d = lab13.tinh_co_mau_d1()
+        self.assertLess(abs(d['n_yeu_cau'] / n - 1), 0.02)
+        self.assertEqual(d['nhan_vien_moi_nhom_b'], 42)
+        self.assertEqual(d['max_neff_nhan_vien'], 1000)
+        self.assertEqual(d['max_neff_depot'], 300)
+        self.assertLess(20 * 298 / (1 + 297 * 0.02), 859)
+        self.assertGreaterEqual(d['neff_e'], 859)
+        self.assertEqual(d['m_min_e'], 299)
+
+    def test_power_tradeoff_is_reported_for_selected_design(self):
+        d = lab13.tinh_co_mau_d1()
+        self.assertGreaterEqual(d['power_6_diem'], 0.8)
+        self.assertLess(d['power_6_diem'], 0.81)
+        self.assertGreater(d['power_5_diem'], 0.63)
+        self.assertLess(d['power_5_diem'], 0.65)
+
+    def test_plan_matches_raw_effective_samples_and_followup_dates(self):
+        path = Path(__file__).resolve().parents[1] / 'report/team/pilot_plan.yaml'
+        text = path.read_text(encoding='utf-8')
+        plan = yaml.safe_load(text)['pilot']
+        d = lab13.tinh_co_mau_d1()
+        metric = plan['primary_metric']
+        self.assertEqual(metric['n_per_arm'], d['n_nhom_e'])
+        self.assertEqual(metric['clusters_per_arm'] * metric['requests_per_cluster'], metric['n_per_arm'])
+        self.assertAlmostEqual(metric['n_per_arm'] / metric['design_effect'], metric['effective_n_per_arm'])
+        self.assertEqual(metric['mde'], 0.06)
+        dates = plan['analysis']
+        self.assertGreaterEqual(date.fromisoformat(dates['collection_start']), date.fromisoformat(plan['rollout_dates'][-1]))
+        self.assertGreaterEqual((date.fromisoformat(dates['followup_end'])
+                                 - date.fromisoformat(dates['collection_end'])).days, 7)
+        self.assertGreater(date.fromisoformat(plan['decision_date']), date.fromisoformat(dates['followup_end']))
+        self.assertGreaterEqual(len(plan['stop_rules']), 3)
+        for rule in plan['stop_rules']:
+            self.assertTrue(all(part in rule for part in ('NẾU', 'TRONG', 'THÌ', 'KHÔNG THÌ')))
+        self.assertNotIn('?', '\n'.join(line for line in text.splitlines() if not line.lstrip().startswith('#')))
+
+    def test_system_comparison_includes_staff_fallback_and_fixed_cost(self):
+        runs, reqs = lab13.doc_du_lieu()
+        scope = reqs.loc[reqs['loai'].isin(lab13.PHAM_VI_PILOT)]
+        cost = lab13.mo_hinh(runs, scope)
+        self.assertEqual(cost['khong_thanh_cong'], 82)
+        a4 = lab13.chi_phi_co_dinh(runs, reqs)
+        self.assertEqual(a4['yeu_cau_pham_vi_thang'], 36825)
+        expected = (3_072_513.274 + 82 * 12_000) / 982 + 40_000_000 / 36_825
+        self.assertAlmostEqual(a4['he_thong_co_dinh_moi_yc'], expected)
+        self.assertAlmostEqual(expected, 5217.09, delta=0.01)
 
 
 if __name__ == '__main__':
